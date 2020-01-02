@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Overview</title>
+    
+      <link rel="stylesheet" href="../_static/pygments.css">
+      <link rel="stylesheet" href="../_static/theme.css">
+      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+          <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+
+      
+      <script src="../_static/theme-vendors.js"></script>
+      <script src="../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../genindex.html" />
+  <link rel="search" title="Search" href="../search.html" />
+  <link rel="next" title="Overview" href="../checkout/overview.html" />
+  <link rel="prev" title="Install" href="install.html" />
+<link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
+<script src="../_static/handsontable.full.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../index.html" class="home-link">
+    
+      <span class="site-name">test</span>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link  router-link-active">
+         NOTIFICATION
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link ">
+         CHECKOUT
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link ">
+         STUDIO
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link ">
+         SCHEDULE TASKS
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link  router-link-active">
+         NOTIFICATION
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link ">
+         CHECKOUT
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link ">
+         STUDIO
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../index.html#welcome-to-camonapp-documentation"
+         class="nav-link ">
+         SCHEDULE TASKS
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-camonapp-documentation">NOTIFICATION</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="install.html" class="reference internal ">Install</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Overview</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#notification-service" class="reference internal">Notification Service</a></li>
+                
+                  <li class="toctree-l2"><a href="#switch-to-another-file" class="reference internal">Switch to another file</a></li>
+                
+                  <li class="toctree-l2"><a href="#rename-a-file" class="reference internal">Rename a file</a></li>
+                
+                  <li class="toctree-l2"><a href="#open-a-file" class="reference internal">Open a file</a></li>
+                
+                  <li class="toctree-l2"><a href="#save-a-file" class="reference internal">Save a file</a></li>
+                
+                  <li class="toctree-l2"><a href="#synchronize-a-file" class="reference internal">Synchronize a file</a></li>
+                
+                  <li class="toctree-l2"><a href="#manage-file-synchronization" class="reference internal">Manage file synchronization</a></li>
+                
+                  <li class="toctree-l2"><a href="#publish-a-file" class="reference internal">Publish a File</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-camonapp-documentation">CHECKOUT</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../checkout/overview.html" class="reference internal ">Overview</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-camonapp-documentation">STUDIO</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../studio/overview.html" class="reference internal ">Overview</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../index.html#welcome-to-camonapp-documentation">SCHEDULE TASKS</a></span>
+      </p>
+      <ul class="">
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Overview</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="install.html"
+       title="previous chapter">← Install</a>
+  </li>
+  <li class="next">
+    <a href="../checkout/overview.html"
+       title="next chapter">Overview →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="notification-service">
+<h2>Notification Service<a class="headerlink" href="#notification-service" title="Permalink to this headline">¶</a></h2>
+<p>The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the <strong>New file</strong> button in the file explorer. You can also create folders by clicking the <strong>New folder</strong> button.</p>
+</div>
+<div class="section" id="switch-to-another-file">
+<h2>Switch to another file<a class="headerlink" href="#switch-to-another-file" title="Permalink to this headline">¶</a></h2>
+<p>All your files and folders are presented as a tree in the file explorer. You can switch from one to another by clicking a file in the tree.</p>
+</div>
+<div class="section" id="rename-a-file">
+<h2>Rename a file<a class="headerlink" href="#rename-a-file" title="Permalink to this headline">¶</a></h2>
+<p>You can rename the current file by clicking the file name in the navigation bar or by clicking the <strong>Rename</strong> button in the file explorer.</p>
+</div>
+<div class="section" id="open-a-file">
+<h2>Open a file<a class="headerlink" href="#open-a-file" title="Permalink to this headline">¶</a></h2>
+<p>You can open a file from <strong>Google Drive</strong>, <strong>Dropbox</strong> or <strong>GitHub</strong> by opening the <strong>Synchronize</strong> sub-menu and clicking <strong>Open from</strong>. Once opened in the workspace, any modification in the file will be automatically synced.</p>
+</div>
+<div class="section" id="save-a-file">
+<h2>Save a file<a class="headerlink" href="#save-a-file" title="Permalink to this headline">¶</a></h2>
+<p>You can save any file of the workspace to <strong>Google Drive</strong>, <strong>Dropbox</strong> or <strong>GitHub</strong> by opening the <strong>Synchronize</strong> sub-menu and clicking <strong>Save on</strong>. Even if a file in the workspace is already synced, you can save it to another location. StackEdit can sync one file with multiple locations and accounts.</p>
+</div>
+<div class="section" id="synchronize-a-file">
+<h2>Synchronize a file<a class="headerlink" href="#synchronize-a-file" title="Permalink to this headline">¶</a></h2>
+<p>Once your file is linked to a synchronized location, StackEdit will periodically synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be resolved.</p>
+<p>If you just have modified your file and you want to force syncing, click the <strong>Synchronize now</strong> button in the navigation bar.</p>
+<blockquote>
+<div><p><strong>Note:</strong> The <strong>Synchronize now</strong> button is disabled if you have no file to synchronize.</p>
+</div></blockquote>
+</div>
+<div class="section" id="manage-file-synchronization">
+<h2>Manage file synchronization<a class="headerlink" href="#manage-file-synchronization" title="Permalink to this headline">¶</a></h2>
+<p>Since one file can be synced with multiple locations, you can list and manage synchronized locations by clicking <strong>File synchronization</strong> in the <strong>Synchronize</strong> sub-menu. This allows you to list and remove synchronized locations that are linked to your file.</p>
+</div>
+<div class="section" id="publish-a-file">
+<h2>Publish a File<a class="headerlink" href="#publish-a-file" title="Permalink to this headline">¶</a></h2>
+<p>You can publish your file by opening the <strong>Publish</strong> sub-menu and by clicking <strong>Publish to</strong>. For some locations, you can choose between the following formats:</p>
+<ul class="simple">
+<li><p>Markdown: publish the Markdown text on a website that can interpret it (<strong>GitHub</strong> for instance),</p></li>
+<li><p>HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="install.html"
+       title="previous chapter">← Install</a>
+  </li>
+  <li class="next">
+    <a href="../checkout/overview.html"
+       title="next chapter">Overview →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2019, camonapp.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

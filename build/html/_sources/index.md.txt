@@ -1,0 +1,6 @@
+Welcome to test's documentation!
+================================
+
+
+Indices and tables
+==================
