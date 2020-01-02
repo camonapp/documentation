@@ -1,3 +1,15 @@
 sphinx-prompt
 recommonmark
 sphinx_press_theme
+alabaster
+gitpython
+sphinxcontrib-actdiag
+sphinxcontrib-blockdiag
+sphinxcontrib-excel-table
+sphinxcontrib-fulltoc
+sphinxcontrib-googleanalytics
+sphinxcontrib-googlechart
+sphinxcontrib-googlemaps
+sphinxcontrib-nwdiag
+sphinxcontrib-plantuml
+sphinxcontrib-seqdiag
