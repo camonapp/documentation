@@ -97,7 +97,7 @@ html_static_path = ['_static']
 html_css_files = [
     'css/custom.css',
 ]
-html_logo = 'https://cdn-studio.camonapp.com/img/logo.png?v1.0'
+html_logo = 'logo.png'
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
