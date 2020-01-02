@@ -19,8 +19,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'test'
-copyright = '2019, camonapp'
+project = 'CAMONAPP'
+copyright = '2020, camonapp'
 author = 'camonapp'
 
 # The short X.Y version
