@@ -1,2 +1,3 @@
+sphinx-prompt
 recommonmark
 sphinx_press_theme
