@@ -15,9 +15,9 @@ Copy the downloaded CamOnAppSDK.framework into your project. After the CamOnApp 
 #### Configure Build Phases
 
 Add the CamOnAppSDK.framework to the Link Binary with Libraries section like this:
-
+<div class="ios">
 ![](/_static/img/ios_setup_1.png)
-
+</div>
 CamOnApp SDK is distributed with the following archs: armv7, arm64, i386, x86_64. In order to archive your app and upload it to the App Store, the x86 slices of used frameworks need to be removed (otherwise, the app won't be allowed to be uploaded). To accomplish that you will have to create a new Build Phase (under Target -> Build Settings -> New Run Script Phase), and paste the following code into it:
 
 ```Bash
@@ -58,9 +58,9 @@ CamOnApp SDK requires the following configuration within Target's Build Settings
 #### General Settings
 
 In addition to including the CamOnAppSDK.framework in the Build Phases section, make sure it is listed as part of the Embedded Binaries list in the General settings tab for your project:
-
-![](/_static/img/ios_setup_2.png
-
+<div class="ios">
+![](/_static/img/ios_setup_2.png)
+</div>
 #### License key setup
 
 You need to have a valid license from CamOnApp in order to complete the setup process. Once obtained, you should edit your app's Info.plist configuration file:
@@ -78,9 +78,9 @@ One more update needs to be done to the Info.plist file:
    * Add a child key to it named "Allow Arbitrary Loads" of type "Boolean" and set it to "YES"
    * Add a new key named "NSCameraUsageDescription" inside "Information Propertly List". Set the type as string and provide a reason for using the camera in the application such as "CamOnApp requires the use of the phone's camera"
 You should see something like this now:
-
+<div class="ios">
 ![](/_static/img/ios_setup_3.png)
-
+</div>
 #### Supported iOS Devices
 
 CamOnApp SDK is running on devices fulfilling the following requirements:
@@ -163,9 +163,9 @@ Bundle Mode should be used when no internet connection is needed. In this case, 
 The setup for bundle mode require the following steps:
 
    * Add a folder named offline within the Assets group of your project (contents will be provided by the CamOnApp team):
-
-     ![](/_static/img/ios_bundle.png
-
+     <div class="ios">
+     ![](/_static/img/ios_bundle.png)
+     </div>
    * Initialize the bundle data (first time only). Copying and preparing the data to be ready to use by the SDK can take some time (depending on the size of the offline folder itself). That's why there's a method for this called [COAUtils initBundleData]. We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.
    * Init the SDK in Bundle Mode by calling: initForBundleMode:
 From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.
