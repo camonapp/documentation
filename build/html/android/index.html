@@ -1,142 +1,209 @@
-<!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-      <title>Android</title>
-    
-      <link rel="stylesheet" href="../_static/pygments.css">
-      <link rel="stylesheet" href="../_static/theme.css">
-      <link rel="stylesheet" href="../_static/sphinx_press_theme.css">
-          <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-          <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-      
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
 
-      <!-- sphinx script_files -->
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Android &mdash; CAMONAPP  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script type="text/javascript" src="../_static/jquery.js"></script>
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
         <script type="text/javascript" src="../_static/language_data.js"></script>
-
-      
-      <script src="../_static/theme-vendors.js"></script>
-      <script src="../_static/theme.js" defer></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="../_static/copybutton.js"></script>
     
-  <link rel="index" title="Index" href="../genindex.html" />
-  <link rel="search" title="Search" href="../search.html" />
-  <link rel="next" title="IOS" href="../ios/index.html" />
-  <link rel="prev" title="Overview" href="../index.html" />
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IOS" href="../ios/index.html" />
+    <link rel="prev" title="Overview" href="../index.html" />
 <link rel="stylesheet" type="text/css" href="../_static/handsontable.full.min.css">
 <script src="../_static/handsontable.full.min.js"></script>
+<style type="text/css">
+    a.copybtn {
+        top: 10px !important;
+        right: 10px !important;
+        width: 1.3em !important;
+    }
 
-  </head>
+    [alt="Setup"] {
+        width: 35em;
+    }
 
-  <body>
-    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
-  <router-link to="../index.html" class="home-link">
+    [alt="Setup ios"] {
+        width: 50em;
+    }
+</style>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
     
-      <span class="site-name">test</span>
-    
-  </router-link>
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
 
-  <div class="links">
-    <navlinks class="can-hide">
+          
+            <a href="../index.html" class="icon icon-home"> CAMONAPP
+          
 
+          
+          </a>
 
+          
+            
+            
+          
 
-    </navlinks>
-  </div>
-</navbar>
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">SDK Integration</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup-configuration">Setup &amp; Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sdk-integration">SDK Integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#android-studio">Android Studio</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#android-manifest-required-changes">Android Manifest: required changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license-setup">License Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-android-devices">Supported Android Devices</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extending-from-camonappactivity">Extending from CamOnAppActivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extending-the-functionality">Extending the functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-a-custom-actionlistener">Defining a custom ActionListener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-note-about-devices-running-android-6-0">A note about devices running Android 6.0+</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#experience-lifecycle">Experience Lifecycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bundle-mode">Bundle Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#positional-experiences">Positional Experiences</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#about-ux-ui">About UX/UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-arcore">Enabling ARCore</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#camonappactivity">CamOnAppActivity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#camonapptargetmode">CamOnAppTargetMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#camonapputils">CamOnAppUtils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#camonappactionlistener">CamOnAppActionListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ios/index.html">IOS</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <div class="sidebar-mask" @click="toggleSidebar(false)">
-      </div>
-        <sidebar @toggle-sidebar="toggleSidebar">
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CAMONAPP</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
           
-          <navlinks>
-            
 
 
 
-            
-          </navlinks><div id="searchbox" class="searchbox" role="search">
-  <div class="caption"><span class="caption-text">Quick search</span>
-    <div class="searchformwrapper">
-      <form class="search" action="../search.html" method="get">
-        <input type="text" name="q" />
-        <input type="submit" value="Search" />
-        <input type="hidden" name="check_keywords" value="yes" />
-        <input type="hidden" name="area" value="default" />
-      </form>
-    </div>
-  </div>
-</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
-  
-    <div class="sidebar-group">
-      <p class="caption">
-        <span class="caption-text"><a href="../index.html#support">SDK Integration</a></span>
-      </p>
-      <ul class="current">
-        
-          <li class="toctree-l1 current"><a href="#" class="reference internal current">Android</a>
 
-            
-              <ul>
-                
-                  <li class="toctree-l2"><a href="#setup-configuration" class="reference internal">Setup & Configuration</a></li>
-                
-                  <li class="toctree-l2"><a href="#basic-usage" class="reference internal">Basic Usage</a></li>
-                
-                  <li class="toctree-l2"><a href="#experience-lifecycle" class="reference internal">Experience Lifecycle</a></li>
-                
-                  <li class="toctree-l2"><a href="#bundle-mode" class="reference internal">Bundle Mode</a></li>
-                
-                  <li class="toctree-l2"><a href="#positional-experiences" class="reference internal">Positional Experiences</a></li>
-                
-                  <li class="toctree-l2"><a href="#api" class="reference internal">API</a></li>
-                
-              </ul>
-            
-          </li>
 
-        
-          <li class="toctree-l1 "><a href="../ios/index.html" class="reference internal ">IOS</a>
 
-            
-          </li>
 
-        
-      </ul>
-    </div>
-  
-</div>
-        </sidebar>
 
-      <page>
-          <div class="body-header" role="navigation" aria-label="navigation">
-  
-  <ul class="breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
     
-    <li>Android</li>
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Android</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/android/index.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
   </ul>
-  
 
-  <ul class="page-nav">
-  <li class="prev">
-    <a href="../index.html"
-       title="previous chapter">← Overview</a>
-  </li>
-  <li class="next">
-    <a href="../ios/index.html"
-       title="next chapter">IOS →</a>
-  </li>
-</ul>
   
+  <hr/>
 </div>
-<hr>
-          <div class="content" role="main">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <div class="section" id="android">
 <h1>Android<a class="headerlink" href="#android" title="Permalink to this headline">¶</a></h1>
@@ -146,14 +213,16 @@
 <h3>SDK Integration<a class="headerlink" href="#sdk-integration" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="android-studio">
 <h4>Android Studio<a class="headerlink" href="#android-studio" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
+<ul>
 <li><p>Open your existing project (or create a new one)</p></li>
 <li><p>Create the libs folder under app (if not already there)</p></li>
-<li><p>Copy the CamOnApp SDK (CamOnApp.aar) to the libs folder</p></li>
+<li><p>Copy the CamOnApp SDK (CamOnApp.aar) to the libs folder</p>
+<p><img alt="setup" src="../_images/android_setup_1.png" /></p>
+</li>
 <li><p>In the next screen, select CamOnAppSDK.aar from your computer</p></li>
 <li><p>Once added, go to the app’s build.gradle and make sure it starts like this:</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">dependencies</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">dependencies</span> <span class="p">{</span>
         <span class="n">implementation</span> <span class="n">fileTree</span><span class="p">(</span><span class="nb">dir</span><span class="p">:</span> <span class="s1">&#39;libs&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;*.jar&#39;</span><span class="p">,</span><span class="s1">&#39;*.aar&#39;</span><span class="p">])</span>
     <span class="p">}</span>
 </pre></div>
@@ -341,8 +410,10 @@ Once initialized, there are two ways of starting a new experience:</p></li>
 <h2>Bundle Mode<a class="headerlink" href="#bundle-mode" title="Permalink to this headline">¶</a></h2>
 <p>Bundle Mode should be used when no internet connection is needed. In this case, the target detection and the experience contents live within the app (in the assets folder).</p>
 <p>The setup for bundle mode require the following steps:</p>
-<ul class="simple">
-<li><p>Add a file named offline.zip (provided by the CamOnApp team) within assets/to_copy folder of your app</p></li>
+<ul>
+<li><p>Add a file named offline.zip (provided by the CamOnApp team) within assets/to_copy folder of your app</p>
+<p><img alt="setup" src="../_images/android_bundle.png" /></p>
+</li>
 <li><p>Initialize the bundle data (first time only). Unzipping and preparing the data to be ready to use by the SDK can take some time (depending on the size of offline.zip itself). That’s why there’s a method for this called CamOnAppUtils.initBundleData(context). We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p></li>
 <li><p>Configure the SDK target mode as CamOnAppTargetMode.TARGET_OBJECT_BUNDLE:</p></li>
 </ul>
@@ -792,27 +863,52 @@ Once initialized, there are two ways of starting a new experience:</p></li>
 </div>
 
 
+           </div>
+           
           </div>
-          <div class="page-nav">
-            <div class="inner"><ul class="page-nav">
-  <li class="prev">
-    <a href="../index.html"
-       title="previous chapter">← Overview</a>
-  </li>
-  <li class="next">
-    <a href="../ios/index.html"
-       title="next chapter">IOS →</a>
-  </li>
-</ul><div class="footer" role="contentinfo">
-      &#169; Copyright 2019, camonapp.
-    <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
-</div>
-            </div>
-          </div>
-      </page>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ios/index.html" class="btn btn-neutral float-right" title="IOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
     </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, camonapp
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
     
-    
-  </body>
+   
+
+</body>
 </html>

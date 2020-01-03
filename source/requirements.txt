@@ -1,7 +1,12 @@
-sphinx-prompt
 recommonmark
 alabaster
 gitpython
+guzzle-sphinx-theme
+livereload
+sphinx-autobuild
+sphinx-bootstrap-theme
+sphinx-prompt
+sphinx-rtd-theme
 sphinxcontrib-actdiag
 sphinxcontrib-blockdiag
 sphinxcontrib-excel-table
