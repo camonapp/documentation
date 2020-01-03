@@ -217,7 +217,7 @@
 <li><p>Open your existing project (or create a new one)</p></li>
 <li><p>Create the libs folder under app (if not already there)</p></li>
 <li><p>Copy the CamOnApp SDK (CamOnApp.aar) to the libs folder</p>
-<p><img alt="setup" src="../_images/android_setup_1.png" /></p>
+<p><img alt="../_images/android_setup_1.png" src="../_images/android_setup_1.png" /></p>
 </li>
 <li><p>In the next screen, select CamOnAppSDK.aar from your computer</p></li>
 <li><p>Once added, go to the app’s build.gradle and make sure it starts like this:</p></li>
@@ -412,7 +412,7 @@ Once initialized, there are two ways of starting a new experience:</p></li>
 <p>The setup for bundle mode require the following steps:</p>
 <ul>
 <li><p>Add a file named offline.zip (provided by the CamOnApp team) within assets/to_copy folder of your app</p>
-<p><img alt="setup" src="../_images/android_bundle.png" /></p>
+<p><img alt="../_images/android_bundle.png" src="../_images/android_bundle.png" /></p>
 </li>
 <li><p>Initialize the bundle data (first time only). Unzipping and preparing the data to be ready to use by the SDK can take some time (depending on the size of offline.zip itself). That’s why there’s a method for this called CamOnAppUtils.initBundleData(context). We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p></li>
 <li><p>Configure the SDK target mode as CamOnAppTargetMode.TARGET_OBJECT_BUNDLE:</p></li>
