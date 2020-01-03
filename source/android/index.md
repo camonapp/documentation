@@ -13,7 +13,7 @@
   * Once added, go to the app's build.gradle and make sure it starts like this:
 
 ```
- dependencies {
+    dependencies {
         implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
     }
 ```
