@@ -18,7 +18,7 @@
 
 
 # -- Project information -----------------------------------------------------
-
+import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
 project = 'CAMONAPP'
 copyright = '2020, camonapp'
@@ -46,6 +46,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.imgmath',
     'sphinx_copybutton',
+    'sphinx_rtd_theme',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -225,6 +226,7 @@ extensions = [
     'sphinxcontrib.rackdiag',
     'sphinxcontrib.seqdiag',
     'sphinx_copybutton',
+    'sphinx_rtd_theme'
 ]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -296,6 +298,7 @@ extensions = [
     'sphinxcontrib.rackdiag',
     'sphinxcontrib.seqdiag',
     'sphinx_copybutton',
+    'sphinx_rtd_theme'
 ]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -367,6 +370,7 @@ extensions = [
     'sphinxcontrib.rackdiag',
     'sphinxcontrib.seqdiag',
     'sphinx_copybutton',
+    'sphinx_rtd_theme'
 ]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
