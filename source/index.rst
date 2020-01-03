@@ -12,14 +12,11 @@ Download
 
 You can download the latest version of the CamOnApp SDK from the link below, including all the required files to integrate it into your existing applications.
 
-`Download CamOnApp SDK <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/latest/CamOnAppSDK.zip>`_
 
 Examples 
 -------------
 
 You can also download the SDK along with example projects for each of the supported platforms.
-
-`Download CamOnApp SDK with examples <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/latest/CamOnAppSDK-With-Examples.zip>`_
 
 Documentation
 -------------

@@ -13,3 +13,4 @@ sphinxcontrib-googlemaps
 sphinxcontrib-nwdiag
 sphinxcontrib-plantuml
 sphinxcontrib-seqdiag
+sphinx-copybutton

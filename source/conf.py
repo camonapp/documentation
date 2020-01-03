@@ -45,6 +45,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.imgmath',
+    'sphinx_copybutton',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -222,7 +223,8 @@ extensions = [
     'sphinxcontrib.packetdiag',
     'sphinxcontrib.plantuml',
     'sphinxcontrib.rackdiag',
-    'sphinxcontrib.seqdiag'
+    'sphinxcontrib.seqdiag',
+    'sphinx_copybutton',
 ]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -293,6 +295,7 @@ extensions = [
     'sphinxcontrib.plantuml',
     'sphinxcontrib.rackdiag',
     'sphinxcontrib.seqdiag',
+    'sphinx_copybutton',
 ]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -363,6 +366,7 @@ extensions = [
     'sphinxcontrib.plantuml',
     'sphinxcontrib.rackdiag',
     'sphinxcontrib.seqdiag',
+    'sphinx_copybutton',
 ]
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
