@@ -1,6 +1,6 @@
 sphinx-prompt
 recommonmark
-sphinx_press_theme
+sphinx-rtd-theme
 alabaster
 gitpython
 sphinxcontrib-actdiag

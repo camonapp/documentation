@@ -1,3 +1,11 @@
 .wy-nav-content{
     max-width: 100vw;
 }
+
+[alt="setup"] {
+    width: 35em;
+}
+
+[alt="setup ios"] {
+    width: 50em;
+}
