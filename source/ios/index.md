@@ -4,15 +4,15 @@
 
 ### SDK Integration
 
-#### Load your Xcode project
+#### 1. Load your Xcode project
 
 The first step is to open your current iOS Project. If you don’t have one, you can create a new one using the Xcode Project setup wizard.
 
-#### Adding the CamOnApp SDK Framework
+#### 2. Adding the CamOnApp SDK Framework
 
 Copy the downloaded CamOnAppSDK.framework into your project. After the CamOnApp SDK Framework was copied into an appropriate location, it can be added using the Linked Frameworks and Libraries panel from your targets General project setting.
 
-#### Configure Build Phases
+#### 3. Configure Build Phases
 
 Add the CamOnAppSDK.framework to the Link Binary with Libraries section like this:
 
@@ -20,7 +20,7 @@ Add the CamOnAppSDK.framework to the Link Binary with Libraries section like thi
 
 CamOnApp SDK is distributed with the following archs: armv7, arm64, i386, x86_64. In order to archive your app and upload it to the App Store, the x86 slices of used frameworks need to be removed (otherwise, the app won't be allowed to be uploaded). To accomplish that you will have to create a new Build Phase (under Target -> Build Settings -> New Run Script Phase), and paste the following code into it:
 
-```Bash
+```bash
 APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
 
 # This script loops through the frameworks embedded in the application and
@@ -51,17 +51,21 @@ mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
 done
 ```
 
-#### Configure Build settings
+#### 4. Configure Build settings
 CamOnApp SDK requires the following configuration within Target's Build Settings:
    * Build Options: Enable Bitcode: No
 
-#### General Settings
+#### 5. General Settings
 
 In addition to including the CamOnAppSDK.framework in the Build Phases section, make sure it is listed as part of the Embedded Binaries list in the General settings tab for your project:
 
 ![](/_static/img/ios_setup_2.png)
 
-#### License key setup
+#### 6. Vuforia Framework
+
+Repeat steps 2, 3 and 5 in order to include Vuforia.framework (included within our SDK zip bundle).
+
+#### 7. License key setup
 
 You need to have a valid license from CamOnApp in order to complete the setup process. Once obtained, you should edit your app's Info.plist configuration file:
    * Add a new key named “CamOnApp” inside “Information Property List”. The type needs to be “Dictionary”
@@ -70,7 +74,7 @@ You need to have a valid license from CamOnApp in order to complete the setup pr
      * LicenseSecretKey of type "String"
      * LicenseUserKey of type "String"
 
-#### Extra changes to Info.plist
+#### 8. Extra changes to Info.plist
 
 One more update needs to be done to the Info.plist file:
 
@@ -99,10 +103,10 @@ Once configured, the CamOnApp SDK usage is very straightforward:
 
 ### Extending from COAViewController
 ```ObjectiveC
-#import <CamOnAppSDK/CamOnAppSDK.h>
-@interface MainViewController : COAViewController
-    // Custom interface
-@end
+  #import <CamOnAppSDK/CamOnAppSDK.h>
+  @interface MainViewController : COAViewController
+      // Custom interface
+  @end
 ```
 
 ### Extending the functionality
@@ -128,14 +132,16 @@ COADefaultActionDelegate does NOT implement the following methods (they will alw
    * likeFacebookPage
    * postInTwitter
    * followTwitterUser
+
 Once the custom action listener was created (and configured) it will have to be attached to the View Controller:
-```Java
-- (void) viewDidLoad {
-    [super viewDidLoad];
-    
-    CustomActionDelegate* actionDelegate = [[CustomActionDelegate alloc] initWithViewController:self];
-    [self setActionDelegate: actionDelegate];
-}
+
+```ObjectiveC
+  - (void) viewDidLoad {
+      [super viewDidLoad];
+      
+      CustomActionDelegate* actionDelegate = [[CustomActionDelegate alloc] initWithViewController:self];
+      [self setActionDelegate: actionDelegate];
+  }
 ```
 
 ## Experience Lifecycle
@@ -166,7 +172,7 @@ The setup for bundle mode require the following steps:
 
      ![](/_static/img/ios_bundle.png)
      
-   * Initialize the bundle data (first time only). Copying and preparing the data to be ready to use by the SDK can take some time (depending on the size of the offline folder itself). That's why there's a method for this called [COAUtils initBundleData]. We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.
+   * Initialize the bundle data (optional, first run only). Copying and preparing the data to be ready to use by the SDK can take some time (depending on the size of the offline folder itself). That's why there's a method for this called [COAUtils initBundleData]. We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.
    * Init the SDK in Bundle Mode by calling: initForBundleMode:
 From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.
 
@@ -194,333 +200,337 @@ When a positional experience has started, the SDK will trigger the following cal
 ### COAViewController
 
 ```ObjectiveC
-/**
- Use this constructor to put the simulation in targetless mode:
- - Scanner will not be enabled because experiences do not follow targets
- */
-- (instancetype) initTargetlessMode;
+  /**
+   Use this constructor to put the simulation in targetless mode:
+   - Scanner will not be enabled because experiences do not follow targets
+   */
+  - (instancetype) initTargetlessMode;
 
-/**
- Use this constructor to put the simulation in default mode:
- - Cloud recognition is enabled
- - Offline targets are enabled
- */
-- (instancetype) initTargetObjectMode;
+  /**
+   Use this constructor to put the simulation in default mode:
+   - Cloud recognition is enabled
+   - Offline targets are enabled
+   */
+  - (instancetype) initTargetObjectMode;
 
-/**
- Use this constructor to put the simulation in bundle mode:
- - Cloud recognition is disabled
- - Offline targets are disabled
- - Targets must be installed manually providing dat/xml/json
- */
-- (instancetype) initTargetObjectBundleMode;
+  /**
+   Use this constructor to put the simulation in bundle mode:
+   - Cloud recognition is disabled
+   - Offline targets are disabled
+   - Targets must be installed manually providing dat/xml/json
+   */
+  - (instancetype) initTargetObjectBundleMode;
 
-/**
- Use this constructor to put the simulation in face detection mode
- */
-- (instancetype) initTargetFaceMode;
+  /**
+   Use this constructor to put the simulation in face detection mode
+   */
+  - (instancetype) initTargetFaceMode;
 
-/*
- Gets the current device orientation
- */
-- (UIInterfaceOrientation) getCurrentInterfaceOrientation;
+  /*
+   Gets the current device orientation
+   */
+  - (UIInterfaceOrientation) getCurrentInterfaceOrientation;
 
-/*
- Indicates if internet connection is available (or not).
- */
-- (BOOL) connectedToInternet;
+  /*
+   Indicates if internet connection is available (or not).
+   */
+  - (BOOL) connectedToInternet;
 
-/**
- Invoked when internet connectivity has been restored
- */
-- (void) onInternetReachable;
+  /**
+   Invoked when internet connectivity has been restored
+   */
+  - (void) onInternetReachable;
 
-/**
- Invoked when internet connectivity has been lost
- */
-- (void) onInternetNotReachable;
+  /**
+   Invoked when internet connectivity has been lost
+   */
+  - (void) onInternetNotReachable;
 
-/*
- Invoked when the experience started loading
- */
-- (void) onExperienceLoadingStarted;
+  /*
+   Invoked when the experience started loading
+   */
+  - (void) onExperienceLoadingStarted;
 
-/*
- Invoked when the experience ended loading
- */
-- (void) onExperienceLoadingEnded;
+  /*
+   Invoked when the experience ended loading
+   */
+  - (void) onExperienceLoadingEnded;
 
-/*
- The detected experience is now running and is being shown to the user.
- This method is always dispatched on the main queue.
- */
-- (void) onExperienceStartedWithInfo:(COAExperienceInfo *)experienceInfo inView:(BOOL)insideView;
+  /*
+   The detected experience is now running and is being shown to the user.
+   This method is always dispatched on the main queue.
+   */
+  - (void) onExperienceStartedWithInfo:(COAExperienceInfo *)experienceInfo inView:(BOOL)insideView;
 
-/*
- The execution of the experience has ended. The ViewController is now ready to detect (and execute) a new experience.
- This method is always dispatched on the main queue.
-*/
-- (void) onExperienceStopped;
+  /*
+   The execution of the experience has ended. The ViewController is now ready to detect (and execute) a new experience.
+   This method is always dispatched on the main queue.
+  */
+  - (void) onExperienceStopped;
 
-/*
- The camera has lost (or gained) focus over the target. This method is called every time the focus changes. "inView" will be YES when the target is visible within the camera (NO otherwise).
- This method is always dispatched on the main queue.
- */
-- (void) onExperienceSourceChanged: (BOOL)inView;
+  /*
+   The camera has lost (or gained) focus over the target. This method is called every time the focus changes. "inView" will be YES when the target is visible within the camera (NO otherwise).
+   This method is always dispatched on the main queue.
+   */
+  - (void) onExperienceSourceChanged: (BOOL)inView;
 
-/*
- A new experience has been detected.
- This method is a previous step to onExperienceDetectedWithId and should not affect the main queue.
- */
-- (void) onExperiencePreDetectedWithId:(NSString *)experienceId;
+  /*
+   A new experience has been detected.
+   This method is a previous step to onExperienceDetectedWithId and should not affect the main queue.
+   */
+  - (void) onExperiencePreDetectedWithId:(NSString *)experienceId;
 
-/*
- A new experience has been detected and a download has been triggered for its contents.
- This method is always dispatched on the main queue.
- */
-- (void) onExperienceDetectedWithId:(NSString *)experienceId;
+  /*
+   A new experience has been detected and a download has been triggered for its contents.
+   This method is always dispatched on the main queue.
+   */
+  - (void) onExperienceDetectedWithId:(NSString *)experienceId;
 
-/*
- SDK has finished loading, and the camera is now visible. From this moment on, it's safe to
- call any SDK method.
- */
-- (void) onCameraPresented;
+  /*
+   SDK has finished loading, and the camera is now visible. From this moment on, it's safe to
+   call any SDK method.
+   */
+  - (void) onCameraPresented;
 
-/*
- Informs whether any trackable exists at this time.
- */
-- (BOOL) anyCurrentTrackable;
+  /*
+   Informs whether any trackable exists at this time.
+   */
+  - (BOOL) anyCurrentTrackable;
 
-/*
- Informs that the last kwnown trackable has been lost.
- */
-- (void) onTrackableLost;
+  /*
+   Informs that the last kwnown trackable has been lost.
+   */
+  - (void) onTrackableLost;
 
-/*
- Informs that a trackable (of any type) has been found.
- */
-- (void) onTrackableFound;
+  /*
+   Informs that a trackable (of any type) has been found.
+   */
+  - (void) onTrackableFound;
 
-/*
- A ground plane has been lost. It's needed in order to place experiences in the ground.
- */
-- (void) onGroundPlaneLost;
+  /*
+   A ground plane has been lost. It's needed in order to place experiences in the ground.
+   */
+  - (void) onGroundPlaneLost;
 
-/*
- A ground plane has been found: now the experience can be placed.
- */
-- (void) onGroundPlaneFound;
+  /*
+   A ground plane has been found: now the experience can be placed.
+   */
+  - (void) onGroundPlaneFound;
 
-/*
- An anchor point has been created: now the experience has been placed successfuly.
- */
-- (void) onAnchorPointCreated;
+  /*
+   An anchor point has been created: now the experience has been placed successfuly.
+   */
+  - (void) onAnchorPointCreated;
 
-/*
- By default, CamOnApp SDK shows a default UI hint for positional experiences.
- This method disables it, in order to provide a custom UI (if needed).
- */
-- (void) disableGroundPlaneHint;
+  /*
+   By default, CamOnApp SDK shows a default UI hint for positional experiences.
+   This method disables it, in order to provide a custom UI (if needed).
+   */
+  - (void) disableGroundPlaneHint;
 
-/*
- Custom events emmited by the experience (via scripting)
- */
-- (void) onCustomEventEmitted: (NSString *) eventName withInfo: (NSString *) eventInfo;
+  /*
+   Custom events emmited by the experience (via scripting)
+   */
+  - (void) onCustomEventEmitted: (NSString *) eventName withInfo: (NSString *) eventInfo;
 
-/*
- Adds custom information to setup the experience (to be used by the scripts inside the experience)
- */
-- (void) setInitialGlobalExperienceData: (NSDictionary *) data;
+  /*
+   Adds custom information to setup the experience (to be used by the scripts inside the experience)
+   */
+  - (void) setInitialGlobalExperienceData: (NSDictionary *) data;
 
-/*
- Callback for Custom Scheme
- */
-- (void) onWallpaperReady:(NSString *)wallpaperUri;
+  /*
+   Callback for Custom Scheme
+   */
+  - (void) onWallpaperReady:(NSString *)wallpaperUri;
 
-/*
- Indicates whether an experience is currently alive or not.
- */
-- (BOOL) anyExperienceAlive;
+  /*
+   Indicates whether an experience is currently alive or not.
+   */
+  - (BOOL) anyExperienceAlive;
 
-/*
- Indicates whether an experience is currently running or not.
- */
-- (BOOL) anyExperienceRunning;
+  /*
+   Indicates whether an experience is currently running or not.
+   */
+  - (BOOL) anyExperienceRunning;
 
-/*
- Indicates whether an experience has been detected, even if it's not yet loaded
- */
-- (BOOL) anyExperienceDetected;
+  /*
+   Indicates whether an experience has been detected, even if it's not yet loaded
+   */
+  - (BOOL) anyExperienceDetected;
 
-/*
- A new ActionDelegate will be configured for every callback possible within an experience.
- */
-- (void) setActionDelegate: (id) delegate;
+  /*
+   A new ActionDelegate will be configured for every callback possible within an experience.
+   */
+  - (void) setActionDelegate: (id) delegate;
 
-/*
- If enabled, Location permissions will be requested and Location Info will be obtained from LocationManager
- */
-- (void) setGeoLocationEnabled: (BOOL)enabled;
+  /*
+   If enabled, Location permissions will be requested and Location Info will be obtained from LocationManager
+   */
+  - (void) setGeoLocationEnabled: (BOOL)enabled;
 
-/*
- Starts the experience matching the given Id.
- This function returns YES if start process ignition was successful, NO otherwise
- */
-- (BOOL) startExperienceWithId: (NSString *) experienceId;
+  /*
+   Starts the experience matching the given Id.
+   This function returns YES if start process ignition was successful, NO otherwise
+   */
+  - (BOOL) startExperienceWithId: (NSString *) experienceId;
 
-/*
- Removes the currently running experience
- This function returns YES if remove process ignition was successful, NO otherwise
- */
-- (BOOL) removeCurrentExperience;
+  /*
+   Removes the currently running experience
+   This function returns YES if remove process ignition was successful, NO otherwise
+   */
+  - (BOOL) removeCurrentExperience;
 
-/*
- Removes the currently running experience and leaves scanning mode
- This function returns YES if remove process ignition was successful, NO otherwise
- */
-- (BOOL) removeCurrentExperienceAndLeaveScanningMode;
+  /*
+   Removes the currently running experience and leaves scanning mode
+   This function returns YES if remove process ignition was successful, NO otherwise
+   */
+  - (BOOL) removeCurrentExperienceAndLeaveScanningMode;
 
-/**
- By enabling scanning mode, the SDK will be able to detect targets. Scanning mode is disabled by default.
- */
-- (void) enableScanningMode;
+  /**
+   By enabling scanning mode, the SDK will be able to detect targets. Scanning mode is disabled by default.
+   */
+  - (void) enableScanningMode;
 
-/**
- Callback called when scanning mode has been enabled.
- */
-- (void) onScanningModeEnabled;
+  /**
+   Callback called when scanning mode has been enabled.
+   */
+  - (void) onScanningModeEnabled;
 
-/**
- Disables scanning mode preventing any target to be detected. This is the default behaviour.
- */
-- (void) disableScanningMode;
+  /**
+   Disables scanning mode preventing any target to be detected. This is the default behaviour.
+   */
+  - (void) disableScanningMode;
 
-/**
- Callback called when scanning mode has been disabled.
- */
-- (void) onScanningModeDisabled;
+  /**
+   Callback called when scanning mode has been disabled.
+   */
+  - (void) onScanningModeDisabled;
 
-/**
- When scanning mode is enabled, the SDK will try to find known targets for 12 seconds.
- If no target has been found during that time, this callback will be triggered, scanning mode
- will be disabled and it will need to be enabled again (if needed) by calling enableScanningMode().
- */
-- (void) onTargetDetectionTimeoutReached;
+  /**
+   When scanning mode is enabled, the SDK will try to find known targets for 12 seconds.
+   If no target has been found during that time, this callback will be triggered, scanning mode
+   will be disabled and it will need to be enabled again (if needed) by calling enableScanningMode().
+   */
+  - (void) onTargetDetectionTimeoutReached;
 
-/**
- Invokend when an internal error occurs
- */
-- (void) onErrorWithCode:(COAError) errorCode description:(NSString *)description;
+  /**
+   Invokend when an internal error occurs
+   */
+  - (void) onErrorWithCode:(COAError) errorCode description:(NSString *)description;
 
-/*
- Starts a video session recording. Once completed, stopVideoRecording needs to be called.
- */
-- (void) startRecording;
+  /*
+   Starts a video session recording. Once completed, stopVideoRecording needs to be called.
+   */
+  - (void) startRecording;
 
-/*
- Stops the video recording session.
- */
-- (void) stopRecording;
+  /*
+   Stops the video recording session.
+   */
+  - (void) stopRecording;
 
-/*
- This method is called when the recorded movie has been processed and it's ready to play at indicated path
- */
-- (void)onRecordedMovieIsReady:(NSString *)path;
+  /*
+   This method is called when the recorded movie has been processed and it's ready to play at indicated path
+   */
+  - (void)onRecordedMovieIsReady:(NSString *)path;
 
-/*
- This methods allows the SDK to safely close COAViewController (experience flow)
- */
-- (void) safeCloseViewControllerAnimated:(BOOL)animated completion:(void (^ __nullable)(void)) completion;
+  /*
+   This methods allows the SDK to safely close COAViewController (experience flow)
+   */
+  - (void) safeCloseViewControllerAnimated:(BOOL)animated completion:(void (^ __nullable)(void)) completion;
 ```
 
 ### COAUtils
 
 ```ObjectiveC
-/*
- Init any bundle data (targets and experiences). If the SDK was initiualized with initTargetObjectBundleMode
- the first time a load of bundle data will be needed. This may take some time (based on how 
- many targets and experieces need to be configured). If this method is not called, it will be handled 
- internally by the SDK the first time it loads (which will make that loading time higher). 
-*/
-+ (void)initBundleData;
+  /*
+   Init any bundle data (targets and experiences). If the SDK was initiualized with initTargetObjectBundleMode
+   the first time a load of bundle data will be needed. This may take some time (based on how 
+   many targets and experieces need to be configured). If this method is not called, it will be handled 
+   internally by the SDK the first time it loads (which will make that loading time higher). 
+  */
+  + (void)initBundleData;
 
+  /*
+   Gets the current SDK version.
+  */
+  + (NSString *)getSDKVersion;
 ```
 
 ### COAActionDelegate
 
 ```ObjectiveC
-/*
- A new browser should be opened with the given parameters.
- */
-- (void) openUrlInBrowser: (NSString*) plainUrl withExternalBrowser: (BOOL)inExternalBrowser;
+  /*
+   A new browser should be opened with the given parameters.
+   */
+  - (void) openUrlInBrowser: (NSString*) plainUrl withExternalBrowser: (BOOL)inExternalBrowser;
 
-/*
- A new custom schema should be precessed with the given data.
- */
-- (void) processCustomSchema: (NSString*) customSchema withData: (NSString*)data;
+  /*
+   A new custom schema should be precessed with the given data.
+   */
+  - (void) processCustomSchema: (NSString*) customSchema withData: (NSString*)data;
 
-/*
- A Facebook profile should be opened with the given parameters.
- */
-- (void) openFacebookProfile: (NSString*) profileId;
+  /*
+   A Facebook profile should be opened with the given parameters.
+   */
+  - (void) openFacebookProfile: (NSString*) profileId;
 
-/*
- An Instagram profile should be opened with the given parameters.
- */
-- (void) openInstagramProfile: (NSString*) profileId;
+  /*
+   An Instagram profile should be opened with the given parameters.
+   */
+  - (void) openInstagramProfile: (NSString*) profileId;
 
-/*
- A Twitter profile should be opened with the given parameters.
- */
-- (void) openTwitterProfile: (NSString*) profileId;
+  /*
+   A Twitter profile should be opened with the given parameters.
+   */
+  - (void) openTwitterProfile: (NSString*) profileId;
 
-/*
- A phone call has been requested with the given parameters.
- */
-- (void) callPhoneNumber: (NSString*) phoneNumber;
+  /*
+   A phone call has been requested with the given parameters.
+   */
+  - (void) callPhoneNumber: (NSString*) phoneNumber;
 
-/*
- A SMS should be sent with the given parameters.
- */
-- (void) sendSMS: (NSString*) phoneNumber withMessage: (NSString*) message;
+  /*
+   A SMS should be sent with the given parameters.
+   */
+  - (void) sendSMS: (NSString*) phoneNumber withMessage: (NSString*) message;
 
-/*
- Adding a new contact to the device contact list has been requested with the given parameters.
- */
-- (void) addContact: (NSString*) firstName lastName: (NSString*)lastName phoneNumber:(NSString*)phoneNumber organization:(NSString*)organization jobTitle:(NSString*)jobTitle email:(NSString*)email twitterProfile:(NSString*)twitterProfile facebookProfile:(NSString*)facebookProfile skypeProfile:(NSString*)skypeProfile;
+  /*
+   Adding a new contact to the device contact list has been requested with the given parameters.
+   */
+  - (void) addContact: (NSString*) firstName lastName: (NSString*)lastName phoneNumber:(NSString*)phoneNumber organization:(NSString*)organization jobTitle:(NSString*)jobTitle email:(NSString*)email twitterProfile:(NSString*)twitterProfile facebookProfile:(NSString*)facebookProfile skypeProfile:(NSString*)skypeProfile;
 
-/*
- A new Facebook post should be added with the given parameters.
- */
-- (void) postInFacebook: (NSString*) feedMessage name: (NSString*) feedName caption: (NSString*)feedCaption description: (NSString*)feedDescription imageUrl:(NSString*)imageUrl link:(NSString*)feedLink;
+  /*
+   A new Facebook post should be added with the given parameters.
+   */
+  - (void) postInFacebook: (NSString*) feedMessage name: (NSString*) feedName caption: (NSString*)feedCaption description: (NSString*)feedDescription imageUrl:(NSString*)imageUrl link:(NSString*)feedLink;
 
-/*
- A new Facebook like should be added to the user's preferences with the given parameters.
- */
-- (void) likeFacebookPage: (NSString*) pageId;
+  /*
+   A new Facebook like should be added to the user's preferences with the given parameters.
+   */
+  - (void) likeFacebookPage: (NSString*) pageId;
 
-/*
- A new Twitter wall message should be added with the given parameters.
- */
-- (void) postInTwitter: (NSString*) textToShare imageUrl:(NSString*)imageUrl;
+  /*
+   A new Twitter wall message should be added with the given parameters.
+   */
+  - (void) postInTwitter: (NSString*) textToShare imageUrl:(NSString*)imageUrl;
 
-/*
- A new Twitter follow should be added to the user's preferences with the given parameters.
- */
-- (void) followTwitterUser: (NSString*) userName;
+  /*
+   A new Twitter follow should be added to the user's preferences with the given parameters.
+   */
+  - (void) followTwitterUser: (NSString*) userName;
 
-/*
- An email should be sent with the given parameters.
- */
-- (void) sendEmail: (NSString*) addressTo withSubject: (NSString*)subject body:(NSString*)body;
+  /*
+   An email should be sent with the given parameters.
+   */
+  - (void) sendEmail: (NSString*) addressTo withSubject: (NSString*)subject body:(NSString*)body;
 
-/*
- The device store app should be opened with the given app id.
- */
-- (void) openAppInStore: (NSString*) appstoreId googlePlay:(NSString*)googlePlayId;
+  /*
+   The device store app should be opened with the given app id.
+   */
+  - (void) openAppInStore: (NSString*) appstoreId googlePlay:(NSString*)googlePlayId;
 
-/*
- A Whatsapp should be sent with the given parameters.
- */
-- (void) sendWhatsapp: (NSString*) phoneNumber withMessage: (NSString*)message;
+  /*
+   A Whatsapp should be sent with the given parameters.
+   */
+  - (void) sendWhatsapp: (NSString*) phoneNumber withMessage: (NSString*)message;
 ```
