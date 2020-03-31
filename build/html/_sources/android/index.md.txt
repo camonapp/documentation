@@ -524,6 +524,22 @@ In order to boost the user experience and enable ARCore, the following steps nee
    * Invoked when an error occurs and needs to be handled by the application.
    */
   public void onError(COAError error);
+
+  /**
+   * Adds custom information to setup the experience (to be used by the scripts inside the experience)s
+  * */
+  public void setInitialGlobalExperienceData(Map<String, String> data);
+
+  /**
+   * Forces SDK deinitialization. Useful for avoiding Android Activity lifecyle "normal" order
+   * between new Activities and old ones.
+   * */
+  public void deinitSDK();
+
+  /**
+    * SDK has been deinitialized correctly.
+  * */
+  public void onSDKDeinited();
 ```
 
 ### CamOnAppTargetMode

@@ -671,6 +671,32 @@ From now on, the SDK will search for known targets installed locally, and once d
 <span class="cm">   This methods allows the SDK to safely close COAViewController (experience flow)</span>
 <span class="cm">   */</span>
   <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">safeCloseViewControllerAnimated</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span> <span class="nl">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">__nullable</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="n">completion</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Toggles device&#39;s flash torch (if available).</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">toggleFlashTorchMode</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Enable/Disable device&#39;s flash torch (if available).</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">setFlashTorchMode</span><span class="p">:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">on</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Indicates whether this device has flash or not.</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">flashIsAvailable</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Indicates whether flash is currently active or not.</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">flashIsActive</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Call this fuction in flows where you need to go from one MirageViewController to another MirageViewController</span>
+<span class="cm">   This method makes the necessary deinitialization</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">deinitSDK</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>

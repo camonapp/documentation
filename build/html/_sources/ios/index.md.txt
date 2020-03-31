@@ -437,6 +437,32 @@ When a positional experience has started, the SDK will trigger the following cal
    This methods allows the SDK to safely close COAViewController (experience flow)
    */
   - (void) safeCloseViewControllerAnimated:(BOOL)animated completion:(void (^ __nullable)(void)) completion;
+
+  /*
+   Toggles device's flash torch (if available).
+  */
+  - (void) toggleFlashTorchMode;
+
+  /*
+   Enable/Disable device's flash torch (if available).
+  */
+  - (void) setFlashTorchMode: (BOOL) on;
+
+  /*
+   Indicates whether this device has flash or not.
+  */
+  - (BOOL) flashIsAvailable;
+
+  /*
+   Indicates whether flash is currently active or not.
+  */
+  - (BOOL) flashIsActive;
+
+  /*
+   Call this fuction in flows where you need to go from one MirageViewController to another MirageViewController
+   This method makes the necessary deinitialization
+  */
+  - (void) deinitSDK;
 ```
 
 ### COAUtils

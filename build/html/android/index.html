@@ -755,6 +755,22 @@
 <span class="cm">   * Invoked when an error occurs and needs to be handled by the application.</span>
 <span class="cm">   */</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">COAError</span> <span class="n">error</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Adds custom information to setup the experience (to be used by the scripts inside the experience)s</span>
+<span class="cm">  * */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setInitialGlobalExperienceData</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Forces SDK deinitialization. Useful for avoiding Android Activity lifecyle &quot;normal&quot; order</span>
+<span class="cm">   * between new Activities and old ones.</span>
+<span class="cm">   * */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deinitSDK</span><span class="o">();</span>
+
+  <span class="cm">/**</span>
+<span class="cm">    * SDK has been deinitialized correctly.</span>
+<span class="cm">  * */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSDKDeinited</span><span class="o">();</span>
 </pre></div>
 </div>
 </div>
