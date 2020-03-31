@@ -13,8 +13,8 @@ The latest version of CamOnApp SDK includes everything needed to add AR to your 
 
 Current latest SDK version by platform:
 
-* Android: 4.0 (`download <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/4.0/SDK-Android.zip>`_)
-* iOS: 4.0 (`download <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/4.0/SDK-iOS.zip>`_)
+* Android: 4.0.1 (`download <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/4.0.1/SDK-Android.zip>`_)
+* iOS: 4.0.1 (`download <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/4.0.1/SDK-iOS.zip>`_)
 
 Documentation
 -------------
