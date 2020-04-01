@@ -531,6 +531,11 @@ In order to boost the user experience and enable ARCore, the following steps nee
   public void setInitialGlobalExperienceData(Map<String, String> data);
 
   /**
+   * Handles custom events emitted by experience's scrips.
+  * */
+  public void onCustomEventEmitted(String eventName, String eventInfo);
+
+  /**
    * Forces SDK deinitialization. Useful for avoiding Android Activity lifecyle "normal" order
    * between new Activities and old ones.
    * */

@@ -762,6 +762,11 @@
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setInitialGlobalExperienceData</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">);</span>
 
   <span class="cm">/**</span>
+<span class="cm">   * Handles custom events emitted by experience&#39;s scrips.</span>
+<span class="cm">  * */</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCustomEventEmitted</span><span class="o">(</span><span class="n">String</span> <span class="n">eventName</span><span class="o">,</span> <span class="n">String</span> <span class="n">eventInfo</span><span class="o">);</span>
+
+  <span class="cm">/**</span>
 <span class="cm">   * Forces SDK deinitialization. Useful for avoiding Android Activity lifecyle &quot;normal&quot; order</span>
 <span class="cm">   * between new Activities and old ones.</span>
 <span class="cm">   * */</span>
