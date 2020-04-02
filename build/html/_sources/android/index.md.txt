@@ -679,3 +679,17 @@ In order to boost the user experience and enable ARCore, the following steps nee
    * */
   void onProcessFile(String path, String action);
 ```
+
+## Libraries included
+
+The following open source libraries are used within the Android SDK:
+
+  * Curl
+  * LibPng
+  * LibZip
+  * Lua
+  * Crimild
+  * JsonCpp
+  * RapidXml
+  * Sol
+  * SQLiteCpp

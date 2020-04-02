@@ -560,3 +560,19 @@ When a positional experience has started, the SDK will trigger the following cal
    */
   - (void) sendWhatsapp: (NSString*) phoneNumber withMessage: (NSString*)message;
 ```
+
+## Libraries included
+
+The following open source libraries are used within the iOS SDK:
+
+  * Reachability
+  * GPUImage
+  * Curl
+  * LibPng
+  * LibZip
+  * Lua
+  * Crimild
+  * JsonCpp
+  * RapidXml
+  * Sol
+  * SQLiteCpp
