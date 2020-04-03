@@ -480,6 +480,11 @@ When a positional experience has started, the SDK will trigger the following cal
    Gets the current SDK version.
   */
   + (NSString *)getSDKVersion;
+
+  /**
+   * Indicates whether the current device support positional experiences (through ARKit) or not.
+   * */
+  + (BOOL)deviceSupportsARKit;
 ```
 
 ### COAActionDelegate

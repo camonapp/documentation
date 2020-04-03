@@ -594,6 +594,11 @@ In order to boost the user experience and enable ARCore, the following steps nee
    * Gets the current SDK version.
    * */
   public static String getSDKVersion();
+
+  /**
+   * Indicates whether the current device support positional experiences (through ARCore) or not.
+   * */
+  public static boolean deviceSupportsARCore();
 ```
 
 ### CamOnAppActionListener
