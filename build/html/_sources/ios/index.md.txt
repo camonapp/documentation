@@ -144,6 +144,13 @@ Once the custom action listener was created (and configured) it will have to be 
   }
 ```
 
+### Customizing default images
+
+There are two instances where default images can be overwritten, in order to provide a better user experience with the app's branding in it:
+
+  * Assets/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience
+  * Assets/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded
+
 ## Experience Lifecycle
 
 The SDK can be initialized in 4 different modes:

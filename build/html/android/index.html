@@ -141,6 +141,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#extending-from-camonappactivity">Extending from CamOnAppActivity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#extending-the-functionality">Extending the functionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#defining-a-custom-actionlistener">Defining a custom ActionListener</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customizing-default-images">Customizing default images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#a-note-about-devices-running-android-6-0">A note about devices running Android 6.0+</a></li>
 </ul>
 </li>
@@ -406,6 +407,14 @@
 <li>onTwitterFollow</li>
 </ul>
 <p>Once the custom action listener was created (and configured) it will have to be attached to the activity by calling setActionListener.</p>
+</div>
+<div class="section" id="customizing-default-images">
+<h3>Customizing default images<a class="headerlink" href="#customizing-default-images" title="Permalink to this headline">¶</a></h3>
+<p>There are two instances where default images can be overwritten, in order to provide a better user experience with the app’s branding in it:</p>
+<ul class="simple">
+<li>res/drawable-hdpi/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience</li>
+<li>res/drawable-hdpi/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded</li>
+</ul>
 </div>
 <div class="section" id="a-note-about-devices-running-android-6-0">
 <h3>A note about devices running Android 6.0+<a class="headerlink" href="#a-note-about-devices-running-android-6-0" title="Permalink to this headline">¶</a></h3>

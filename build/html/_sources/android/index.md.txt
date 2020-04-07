@@ -160,6 +160,7 @@ Some of the features that could extended/listened to are:
    * Etc...
 
 ### Defining a custom ActionListener
+
 CamOnApp SDK provides a default action listener (named CamOnAppDefaultActionListener), which provides all the functionality needed for almost every experience callback. As the default action listener implements the CamOnAppActionListener interface, there are two options:
 
    * Create a new class that implements the CamOnAppActionListener interface (and implement every method from scratch according to the needs)
@@ -173,6 +174,13 @@ CamOnAppDefaultActionListener does NOT implement the following methods (they wil
    * onTwitterFollow
 
 Once the custom action listener was created (and configured) it will have to be attached to the activity by calling setActionListener.
+
+### Customizing default images
+
+There are two instances where default images can be overwritten, in order to provide a better user experience with the app's branding in it:
+
+  * res/drawable-hdpi/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience
+  * res/drawable-hdpi/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded
 
 ### A note about devices running Android 6.0+
 

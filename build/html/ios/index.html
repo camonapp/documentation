@@ -145,6 +145,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#extending-from-coaviewcontroller">Extending from COAViewController</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#extending-the-functionality">Extending the functionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#defining-a-custom-actiondelegate">Defining a custom ActionDelegate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customizing-default-images">Customizing default images</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#experience-lifecycle">Experience Lifecycle</a></li>
@@ -379,6 +380,14 @@ You should see something like this now:</li>
   <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="customizing-default-images">
+<h3>Customizing default images<a class="headerlink" href="#customizing-default-images" title="Permalink to this headline">¶</a></h3>
+<p>There are two instances where default images can be overwritten, in order to provide a better user experience with the app’s branding in it:</p>
+<ul class="simple">
+<li>Assets/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience</li>
+<li>Assets/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded</li>
+</ul>
 </div>
 </div>
 <div class="section" id="experience-lifecycle">
