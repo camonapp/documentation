@@ -301,6 +301,7 @@
       <span class="n">implementation</span> <span class="s2">&quot;androidx.camera:camera-core:1.0.0-alpha06&quot;</span>
       <span class="n">implementation</span> <span class="s2">&quot;androidx.camera:camera-camera2:1.0.0-alpha06&quot;</span>
       <span class="n">implementation</span> <span class="s1">&#39;com.google.ar:core:1.14.0&#39;</span>
+      <span class="n">implementation</span> <span class="s1">&#39;com.google.android.gms:play-services-location:17.0.0&#39;</span>
   <span class="p">}</span>
 </pre></div>
 </div>
@@ -826,6 +827,11 @@
 <span class="cm">   * Gets the current SDK version.</span>
 <span class="cm">   * */</span>
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getSDKVersion</span><span class="o">();</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Indicates whether the current device support positional experiences (through ARCore) or not.</span>
+<span class="cm">   * */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">deviceSupportsARCore</span><span class="o">();</span>
 </pre></div>
 </div>
 </div>

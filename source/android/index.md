@@ -72,6 +72,7 @@ Make sure you add the following config lines to the app's build.gradle:
       implementation "androidx.camera:camera-core:1.0.0-alpha06"
       implementation "androidx.camera:camera-camera2:1.0.0-alpha06"
       implementation 'com.google.ar:core:1.14.0'
+      implementation 'com.google.android.gms:play-services-location:17.0.0'
   }
 ```
 
