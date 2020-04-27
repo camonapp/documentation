@@ -266,42 +266,7 @@ In order to boost the user experience and enable ARCore, the following steps nee
         ...
     }
    ```
-   * Check if the device supports ARCore and it's not installed. In that case, start the installation flow within the app:
-   ```java
-    if (CamOnAppUtils.isARCoreSupported(this) && !CamOnAppUtils.isARCoreInstalled(this)) {
-        CamOnAppUtils.checkARCoreAvailability(this, new CamOnAppUtils.ARCoreAvailabilityCallback() {
-            @Override
-            public void unsupported() {
-                Log.i("ARCore", "ARCore is not supported");
-            }
-
-            @Override
-            public void installed() {
-                Log.i("ARCore", "ARCore already installed");
-            }
-
-            @Override
-            public void installRequested() {
-                Log.i("ARCore", "ARCore install has been requested");
-            }
-
-            @Override
-            public void userDeclinesInstallation() {
-                Log.i("ARCore", "ARCore installation has been declined by user");
-            }
-
-            @Override
-            public void deviceNotCompatible() {
-                Log.i("ARCore", "ARCore is not compatib le with this device");
-            }
-
-            @Override
-            public void unknownError() {
-                Log.i("ARCore", "ARCore unknown error has occurred");
-            }
-        });
-    }
-  ```
+   * Check if the device supports ARCore and it's not installed (see Android's sample app as reference)
 
 ## API
 
@@ -584,20 +549,15 @@ In order to boost the user experience and enable ARCore, the following steps nee
   public static void initBundleData(Context context);
 
   /**
-   * Indicates whether the current device supports ARCore
+   * Indicates whether the current device supports ARCore or not.
    * */
-  public static boolean isARCoreSupported(Activity activity);
-
-  /**
-   * Indicates whether ARCore app is installed in the current device.
-   * */
-  public static boolean isARCoreInstalled(Activity activity);
+  public static void checkARCoreSupported(Activity activity, ARCoreSupportedCallback callback);
 
   /**
    * If ARCore is supported and not installed in the current device, it will start the installation
    * flow by asking the user in a series of system provided dialogs.
    * */
-  public static void checkARCoreAvailability(final Activity activity, final ARCoreAvailabilityCallback callback);
+  public static void handleARCoreInstallIfNeeded(Activity activity, boolean userRequestedInstall, ARCoreAvailabilityCallback callback);
 
   /**
    * Gets the current SDK version.
