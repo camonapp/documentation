@@ -13,3 +13,11 @@ img {
 .icon-home#text{
     display: none;
 }
+
+.wy-side-nav-search {
+	background-color: #142660 !important;
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+	color: #fff;
+}

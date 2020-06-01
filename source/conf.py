@@ -20,12 +20,12 @@
 # -- Project information -----------------------------------------------------
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
-project = 'CAMONAPP'
+project = ''
 copyright = '2020, CamOnApp'
 author = 'CamOnApp'
 
 # The short X.Y version
-version = '4.0.3'
+version = ''
 # The full version, including alpha/beta/rc tags
 release = ''
 
