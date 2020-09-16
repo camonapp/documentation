@@ -242,37 +242,6 @@
 <h4>3. Configure Build Phases<a class="headerlink" href="#configure-build-phases" title="Permalink to this headline">¶</a></h4>
 <p>Add the CamOnAppSDK.framework to the Link Binary with Libraries section like this:</p>
 <p><img alt="../_images/ios_setup_1.png" src="../_images/ios_setup_1.png" /></p>
-<p>CamOnApp SDK is distributed with the following archs: armv7, arm64, i386, x86_64. In order to archive your app and upload it to the App Store, the x86 slices of used frameworks need to be removed (otherwise, the app won’t be allowed to be uploaded). To accomplish that you will have to create a new Build Phase (under Target -&gt; Build Settings -&gt; New Run Script Phase), and paste the following code into it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">APP_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_BUILD_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">WRAPPER_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="c1"># This script loops through the frameworks embedded in the application and</span>
-<span class="c1"># removes unused architectures.</span>
-find <span class="s2">&quot;</span><span class="nv">$APP_PATH</span><span class="s2">&quot;</span> -name <span class="s1">&#39;*.framework&#39;</span> -type d <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> -r FRAMEWORK
-<span class="k">do</span>
-<span class="nv">FRAMEWORK_EXECUTABLE_NAME</span><span class="o">=</span><span class="k">$(</span>defaults <span class="nb">read</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK</span><span class="s2">/Info.plist&quot;</span> CFBundleExecutable<span class="k">)</span>
-<span class="nv">FRAMEWORK_EXECUTABLE_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$FRAMEWORK</span><span class="s2">/</span><span class="nv">$FRAMEWORK_EXECUTABLE_NAME</span><span class="s2">&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;Executable is </span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
-
-<span class="nv">EXTRACTED_ARCHS</span><span class="o">=()</span>
-
-<span class="k">for</span> ARCH in <span class="nv">$ARCHS</span>
-<span class="k">do</span>
-<span class="nb">echo</span> <span class="s2">&quot;Extracting </span><span class="nv">$ARCH</span><span class="s2"> from </span><span class="nv">$FRAMEWORK_EXECUTABLE_NAME</span><span class="s2">&quot;</span>
-lipo -extract <span class="s2">&quot;</span><span class="nv">$ARCH</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">&quot;</span>
-<span class="nv">EXTRACTED_ARCHS</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">&quot;</span><span class="o">)</span>
-<span class="k">done</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;Merging extracted architectures: </span><span class="si">${</span><span class="nv">ARCHS</span><span class="si">}</span><span class="s2">&quot;</span>
-lipo -o <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-merged&quot;</span> -create <span class="s2">&quot;</span><span class="si">${</span><span class="nv">EXTRACTED_ARCHS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-rm <span class="s2">&quot;</span><span class="si">${</span><span class="nv">EXTRACTED_ARCHS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;Replacing original executable with thinned version&quot;</span>
-rm <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
-mv <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-merged&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
-
-<span class="k">done</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="configure-build-settings">
 <h4>4. Configure Build settings<a class="headerlink" href="#configure-build-settings" title="Permalink to this headline">¶</a></h4>
