@@ -59,7 +59,7 @@ CamOnApp SDK is running on devices fulfilling the following requirements:
    * iOS 9.0+
    * iPhone / iPad device family
    * Retina / Non-Retina devices
-   * Devices with a capable CPU (armv7, armv7s, arm64)
+   * Devices with a capable CPU (arm64)
 
 ## Basic Usage
 
