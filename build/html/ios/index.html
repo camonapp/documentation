@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>IOS &mdash; CAMONAPP  documentation</title>
+  <title>IOS &mdash;   documentation</title>
   
 
   
@@ -25,8 +25,9 @@
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
         <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+        <script type="text/javascript" src="../_static/clipboard.min.js"></script>
         <script type="text/javascript" src="../_static/copybutton.js"></script>
+        <script type="text/javascript">var copybuttonSkipText = '>>> ';</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -50,11 +51,23 @@
         width: 1.3em !important;
     }
 
-    [alt="Setup"] {
+    img {
         width: 35em;
     }
 
-    [alt="Setup ios"] {
+    .icon-home:before {
+        display: none;
+    }
+
+    .icon-home {
+        color: #2980B9 !important;
+    }
+
+    .icon-home:hover {
+        color: transparent !important;
+    }
+
+    .ios img {
         width: 50em;
     }
 </style>
@@ -72,9 +85,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> CAMONAPP
+            <a href="../index.html" class="icon icon-home"> 
           
 
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -102,19 +118,20 @@
               
             
             
-              <p class="caption"><span class="caption-text">SDK Integration</span></p>
+              <p class="caption"><span class="caption-text">Mobile SDK Documentation</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../android/index.html">Android</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">IOS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup-configuration">Setup &amp; Configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sdk-integration">SDK Integration</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#load-your-xcode-project">Load your Xcode project</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adding-the-camonapp-sdk-framework">Adding the CamOnApp SDK Framework</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configure-build-phases">Configure Build Phases</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configure-build-settings">Configure Build settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#general-settings">General Settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#license-key-setup">License key setup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#extra-changes-to-info-plist">Extra changes to Info.plist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-your-xcode-project">1. Load your Xcode project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-the-camonapp-sdk-framework">2. Adding the CamOnApp SDK Framework</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-build-phases">3. Configure Build Phases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-build-settings">4. Configure Build settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#general-settings">5. General Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vuforia-framework">6. Vuforia Framework</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#license-key-setup">7. License key setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extra-changes-to-info-plist">8. Extra changes to Info.plist</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#supported-ios-devices">Supported iOS Devices</a></li>
 </ul>
 </li>
@@ -124,6 +141,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#extending-from-coaviewcontroller">Extending from COAViewController</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#extending-the-functionality">Extending the functionality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#defining-a-custom-actiondelegate">Defining a custom ActionDelegate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customizing-default-images">Customizing default images</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#experience-lifecycle">Experience Lifecycle</a></li>
@@ -139,6 +157,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#coaactiondelegate">COAActionDelegate</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#libraries-included">Libraries included</a></li>
 </ul>
 </li>
 </ul>
@@ -155,7 +174,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">CAMONAPP</a>
+          <a href="../index.html"></a>
         
       </nav>
 
@@ -212,83 +231,55 @@
 <div class="section" id="sdk-integration">
 <h3>SDK Integration<a class="headerlink" href="#sdk-integration" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="load-your-xcode-project">
-<h4>Load your Xcode project<a class="headerlink" href="#load-your-xcode-project" title="Permalink to this headline">¶</a></h4>
+<h4>1. Load your Xcode project<a class="headerlink" href="#load-your-xcode-project" title="Permalink to this headline">¶</a></h4>
 <p>The first step is to open your current iOS Project. If you don’t have one, you can create a new one using the Xcode Project setup wizard.</p>
 </div>
 <div class="section" id="adding-the-camonapp-sdk-framework">
-<h4>Adding the CamOnApp SDK Framework<a class="headerlink" href="#adding-the-camonapp-sdk-framework" title="Permalink to this headline">¶</a></h4>
+<h4>2. Adding the CamOnApp SDK Framework<a class="headerlink" href="#adding-the-camonapp-sdk-framework" title="Permalink to this headline">¶</a></h4>
 <p>Copy the downloaded CamOnAppSDK.framework into your project. After the CamOnApp SDK Framework was copied into an appropriate location, it can be added using the Linked Frameworks and Libraries panel from your targets General project setting.</p>
 </div>
 <div class="section" id="configure-build-phases">
-<h4>Configure Build Phases<a class="headerlink" href="#configure-build-phases" title="Permalink to this headline">¶</a></h4>
+<h4>3. Configure Build Phases<a class="headerlink" href="#configure-build-phases" title="Permalink to this headline">¶</a></h4>
 <p>Add the CamOnAppSDK.framework to the Link Binary with Libraries section like this:</p>
 <p><img alt="../_images/ios_setup_1.png" src="../_images/ios_setup_1.png" /></p>
-<p>CamOnApp SDK is distributed with the following archs: armv7, arm64, i386, x86_64. In order to archive your app and upload it to the App Store, the x86 slices of used frameworks need to be removed (otherwise, the app won’t be allowed to be uploaded). To accomplish that you will have to create a new Build Phase (under Target -&gt; Build Settings -&gt; New Run Script Phase), and paste the following code into it:</p>
-<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="nv">APP_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_BUILD_DIR</span><span class="si">}</span><span class="s2">/</span><span class="si">${</span><span class="nv">WRAPPER_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="c1"># This script loops through the frameworks embedded in the application and</span>
-<span class="c1"># removes unused architectures.</span>
-find <span class="s2">&quot;</span><span class="nv">$APP_PATH</span><span class="s2">&quot;</span> -name <span class="s1">&#39;*.framework&#39;</span> -type d <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> -r FRAMEWORK
-<span class="k">do</span>
-<span class="nv">FRAMEWORK_EXECUTABLE_NAME</span><span class="o">=</span><span class="k">$(</span>defaults <span class="nb">read</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK</span><span class="s2">/Info.plist&quot;</span> CFBundleExecutable<span class="k">)</span>
-<span class="nv">FRAMEWORK_EXECUTABLE_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$FRAMEWORK</span><span class="s2">/</span><span class="nv">$FRAMEWORK_EXECUTABLE_NAME</span><span class="s2">&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;Executable is </span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
-
-<span class="nv">EXTRACTED_ARCHS</span><span class="o">=()</span>
-
-<span class="k">for</span> ARCH in <span class="nv">$ARCHS</span>
-<span class="k">do</span>
-<span class="nb">echo</span> <span class="s2">&quot;Extracting </span><span class="nv">$ARCH</span><span class="s2"> from </span><span class="nv">$FRAMEWORK_EXECUTABLE_NAME</span><span class="s2">&quot;</span>
-lipo -extract <span class="s2">&quot;</span><span class="nv">$ARCH</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span> -o <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">&quot;</span>
-<span class="nv">EXTRACTED_ARCHS</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-</span><span class="nv">$ARCH</span><span class="s2">&quot;</span><span class="o">)</span>
-<span class="k">done</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;Merging extracted architectures: </span><span class="si">${</span><span class="nv">ARCHS</span><span class="si">}</span><span class="s2">&quot;</span>
-lipo -o <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-merged&quot;</span> -create <span class="s2">&quot;</span><span class="si">${</span><span class="nv">EXTRACTED_ARCHS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-rm <span class="s2">&quot;</span><span class="si">${</span><span class="nv">EXTRACTED_ARCHS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;Replacing original executable with thinned version&quot;</span>
-rm <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
-mv <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">-merged&quot;</span> <span class="s2">&quot;</span><span class="nv">$FRAMEWORK_EXECUTABLE_PATH</span><span class="s2">&quot;</span>
-
-<span class="k">done</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="configure-build-settings">
-<h4>Configure Build settings<a class="headerlink" href="#configure-build-settings" title="Permalink to this headline">¶</a></h4>
+<h4>4. Configure Build settings<a class="headerlink" href="#configure-build-settings" title="Permalink to this headline">¶</a></h4>
 <p>CamOnApp SDK requires the following configuration within Target’s Build Settings:</p>
 <ul class="simple">
-<li><p>Build Options: Enable Bitcode: No</p></li>
+<li>Build Options: Enable Bitcode: No</li>
 </ul>
 </div>
 <div class="section" id="general-settings">
-<h4>General Settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h4>
+<h4>5. General Settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h4>
 <p>In addition to including the CamOnAppSDK.framework in the Build Phases section, make sure it is listed as part of the Embedded Binaries list in the General settings tab for your project:</p>
-<p>![](/_static/img/ios_setup_2.png</p>
+<p><img alt="../_images/ios_setup_2.png" src="../_images/ios_setup_2.png" /></p>
+</div>
+<div class="section" id="vuforia-framework">
+<h4>6. Vuforia Framework<a class="headerlink" href="#vuforia-framework" title="Permalink to this headline">¶</a></h4>
+<p>Repeat steps 2, 3 and 5 in order to include Vuforia.framework (included within our SDK zip bundle).</p>
 </div>
 <div class="section" id="license-key-setup">
-<h4>License key setup<a class="headerlink" href="#license-key-setup" title="Permalink to this headline">¶</a></h4>
+<h4>7. License key setup<a class="headerlink" href="#license-key-setup" title="Permalink to this headline">¶</a></h4>
 <p>You need to have a valid license from CamOnApp in order to complete the setup process. Once obtained, you should edit your app’s Info.plist configuration file:</p>
 <ul class="simple">
-<li><p>Add a new key named “CamOnApp” inside “Information Property List”. The type needs to be “Dictionary”</p></li>
-<li><p>Add the following child keys to it</p>
-<ul>
-<li><p>LicenseCloudDb of type “String”</p></li>
-<li><p>LicenseSecretKey of type “String”</p></li>
-<li><p>LicenseUserKey of type “String”</p></li>
+<li>Add a new key named “CamOnApp” inside “Information Property List”. The type needs to be “Dictionary”</li>
+<li>Add the following child keys to it<ul>
+<li>LicenseCloudDb of type “String”</li>
+<li>LicenseSecretKey of type “String”</li>
+<li>LicenseUserKey of type “String”</li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="extra-changes-to-info-plist">
-<h4>Extra changes to Info.plist<a class="headerlink" href="#extra-changes-to-info-plist" title="Permalink to this headline">¶</a></h4>
+<h4>8. Extra changes to Info.plist<a class="headerlink" href="#extra-changes-to-info-plist" title="Permalink to this headline">¶</a></h4>
 <p>One more update needs to be done to the Info.plist file:</p>
 <ul class="simple">
-<li><p>Add a new key named “App Transport Security Settings” inside “Information Property List”. The type needs to be “Dictionary”</p></li>
-<li><p>Add a child key to it named “Allow Arbitrary Loads” of type “Boolean” and set it to “YES”</p></li>
-<li><p>Add a new key named “NSCameraUsageDescription” inside “Information Propertly List”. Set the type as string and provide a reason for using the camera in the application such as “CamOnApp requires the use of the phone’s camera”
-You should see something like this now:</p></li>
+<li>Add a new key named “App Transport Security Settings” inside “Information Property List”. The type needs to be “Dictionary”</li>
+<li>Add a child key to it named “Allow Arbitrary Loads” of type “Boolean” and set it to “YES”</li>
+<li>Add a new key named “NSCameraUsageDescription” inside “Information Propertly List”. Set the type as string and provide a reason for using the camera in the application such as “CamOnApp requires the use of the phone’s camera”
+You should see something like this now:</li>
 </ul>
 <p><img alt="../_images/ios_setup_3.png" src="../_images/ios_setup_3.png" /></p>
 </div>
@@ -296,10 +287,10 @@ You should see something like this now:</p></li>
 <h4>Supported iOS Devices<a class="headerlink" href="#supported-ios-devices" title="Permalink to this headline">¶</a></h4>
 <p>CamOnApp SDK is running on devices fulfilling the following requirements:</p>
 <ul class="simple">
-<li><p>iOS 9.0+</p></li>
-<li><p>iPhone / iPad device family</p></li>
-<li><p>Retina / Non-Retina devices</p></li>
-<li><p>Devices with a capable CPU (armv7, armv7s, arm64)</p></li>
+<li>iOS 9.0+</li>
+<li>iPhone / iPad device family</li>
+<li>Retina / Non-Retina devices</li>
+<li>Devices with a capable CPU (arm64)</li>
 </ul>
 </div>
 </div>
@@ -308,16 +299,16 @@ You should see something like this now:</p></li>
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Once configured, the CamOnApp SDK usage is very straightforward:</p>
 <ul class="simple">
-<li><p>Extend the desired ViewController from COAViewController</p></li>
-<li><p>Override those methods needed to add new/extra functionality (optional)</p></li>
-<li><p>Define a new ActionDelegate and attach it to the ViewController extending COAViewController (optional)</p></li>
+<li>Extend the desired ViewController from COAViewController</li>
+<li>Override those methods needed to add new/extra functionality (optional)</li>
+<li>Define a new ActionDelegate and attach it to the ViewController extending COAViewController (optional)</li>
 </ul>
 <div class="section" id="extending-from-coaviewcontroller">
 <h3>Extending from COAViewController<a class="headerlink" href="#extending-from-coaviewcontroller" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span><span class="cp">#import &lt;CamOnAppSDK/CamOnAppSDK.h&gt;</span>
-<span class="k">@interface</span> <span class="nc">MainViewController</span> : <span class="nc">COAViewController</span>
-    <span class="c1">// Custom interface</span>
-<span class="k">@end</span>
+<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span>  <span class="cp">#import &lt;CamOnAppSDK/CamOnAppSDK.h&gt;</span>
+  <span class="k">@interface</span> <span class="nc">MainViewController</span> : <span class="nc">COAViewController</span>
+      <span class="c1">// Custom interface</span>
+  <span class="k">@end</span>
 </pre></div>
 </div>
 </div>
@@ -326,51 +317,59 @@ You should see something like this now:</p></li>
 <p>COAViewController interface is fully described in the API Section. No method needs to be overriden. Everything will work as expected with the minimum configuration described above.</p>
 <p>Some of the features that could be extended/listened to are:</p>
 <ul class="simple">
-<li><p>Experience Detected</p></li>
-<li><p>Experience Started</p></li>
-<li><p>Etc…</p></li>
+<li>Experience Detected</li>
+<li>Experience Started</li>
+<li>Etc…</li>
 </ul>
 </div>
 <div class="section" id="defining-a-custom-actiondelegate">
 <h3>Defining a custom ActionDelegate<a class="headerlink" href="#defining-a-custom-actiondelegate" title="Permalink to this headline">¶</a></h3>
 <p>CamOnApp SDK provides a default action delegate (named COADefaultActionDelegate), which provides all the functionality needed for almost every experience callback. As the default action listener implements the COAActionDelegate protocol, there are two options:</p>
 <ul class="simple">
-<li><p>Create a new class that implements the COAActionDelegate protocol (and implement every method from scratch according to the needs)</p></li>
-<li><p>Create a new class extending COADefaultActionDelegate. This way, only desired methods will have to be overriden.</p></li>
+<li>Create a new class that implements the COAActionDelegate protocol (and implement every method from scratch according to the needs)</li>
+<li>Create a new class extending COADefaultActionDelegate. This way, only desired methods will have to be overriden.</li>
 </ul>
 <p>COADefaultActionDelegate does NOT implement the following methods (they will always have to be implemented):</p>
 <ul class="simple">
-<li><p>postInFacebook</p></li>
-<li><p>likeFacebookPage</p></li>
-<li><p>postInTwitter</p></li>
-<li><p>followTwitterUser
-Once the custom action listener was created (and configured) it will have to be attached to the View Controller:</p></li>
+<li>postInFacebook</li>
+<li>likeFacebookPage</li>
+<li>postInTwitter</li>
+<li>followTwitterUser</li>
 </ul>
-<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">viewDidLoad</span> <span class="p">{</span>
-    <span class="o">[</span><span class="kd">super</span> <span class="n">viewDidLoad</span><span class="o">]</span><span class="p">;</span>
-    
-    <span class="n">CustomActionDelegate</span><span class="o">*</span> <span class="n">actionDelegate</span> <span class="o">=</span> <span class="o">[[</span><span class="n">CustomActionDelegate</span> <span class="n">alloc</span><span class="o">]</span> <span class="n">initWithViewController</span><span class="p">:</span><span class="n">self</span><span class="o">]</span><span class="p">;</span>
-    <span class="o">[</span><span class="n">self</span> <span class="n">setActionDelegate</span><span class="p">:</span> <span class="n">actionDelegate</span><span class="o">]</span><span class="p">;</span>
-<span class="p">}</span>
+<p>Once the custom action listener was created (and configured) it will have to be attached to the View Controller:</p>
+<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span>  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">viewDidLoad</span> <span class="p">{</span>
+      <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
+      
+      <span class="n">CustomActionDelegate</span><span class="o">*</span> <span class="n">actionDelegate</span> <span class="o">=</span> <span class="p">[[</span><span class="n">CustomActionDelegate</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithViewController</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>
+      <span class="p">[</span><span class="nb">self</span> <span class="nl">setActionDelegate</span><span class="p">:</span> <span class="n">actionDelegate</span><span class="p">];</span>
+  <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="customizing-default-images">
+<h3>Customizing default images<a class="headerlink" href="#customizing-default-images" title="Permalink to this headline">¶</a></h3>
+<p>There are two instances where default images can be overwritten, in order to provide a better user experience with the app’s branding in it:</p>
+<ul class="simple">
+<li>Assets/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience</li>
+<li>Assets/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded</li>
+</ul>
 </div>
 </div>
 <div class="section" id="experience-lifecycle">
 <h2>Experience Lifecycle<a class="headerlink" href="#experience-lifecycle" title="Permalink to this headline">¶</a></h2>
 <p>The SDK can be initialized in 4 different modes:</p>
 <ul class="simple">
-<li><p>Targetless: scanner and target detection are disabled. There only way to start a experience is by id (with startExperienceWithId(ID)).</p></li>
-<li><p>TargetObject: scanner and target detection are enabled. Experiences can be either started by target detection or by id.</p></li>
-<li><p>TargetObjectBundle: same as TargetOnject, but in bundle mode. In this mode, no internet connection is required (experiences and target need to be within the assets folder).</p></li>
-<li><p>TargetFace: similar to TargetObject, where the only possible target is a human face.
-Once initialized, there are two ways of starting a new experience:</p></li>
-<li><p>By target detection (image, cylinder, object)</p></li>
-<li><p>By experience-id (manually)
-In both cases, the lifecycle triggered by the SDK will be the following (in order):</p></li>
-<li><p>onExperienceDetected: experience has been detected and loading process has been started</p></li>
-<li><p>onExperienceStarted: experience load has finished and it has been shown to the user</p></li>
-<li><p>onExperienceStopped: experience has been unloaded and is no longer visible to the user</p></li>
+<li>Targetless: scanner and target detection are disabled. There only way to start a experience is by id (with startExperienceWithId(ID)).</li>
+<li>TargetObject: scanner and target detection are enabled. Experiences can be either started by target detection or by id.</li>
+<li>TargetObjectBundle: same as TargetOnject, but in bundle mode. In this mode, no internet connection is required (experiences and target need to be within the assets folder).</li>
+<li>TargetFace: similar to TargetObject, where the only possible target is a human face.
+Once initialized, there are two ways of starting a new experience:</li>
+<li>By target detection (image, cylinder, object)</li>
+<li>By experience-id (manually)
+In both cases, the lifecycle triggered by the SDK will be the following (in order):</li>
+<li>onExperienceDetected: experience has been detected and loading process has been started</li>
+<li>onExperienceStarted: experience load has finished and it has been shown to the user</li>
+<li>onExperienceStopped: experience has been unloaded and is no longer visible to the user</li>
 </ul>
 </div>
 <div class="section" id="bundle-mode">
@@ -378,12 +377,14 @@ In both cases, the lifecycle triggered by the SDK will be the following (in orde
 <p>Bundle Mode should be used when no internet connection is needed. In this case, the target detection and the experience contents live within the app (in the assets folder).</p>
 <p>The setup for bundle mode require the following steps:</p>
 <ul>
-<li><p>Add a folder named offline within the Assets group of your project (contents will be provided by the CamOnApp team):</p>
-<p>![](/_static/img/ios_bundle.png</p>
+<li><p class="first">Add a folder named offline within the Assets group of your project (contents will be provided by the CamOnApp team):</p>
+<p><img alt="../_images/ios_bundle.png" src="../_images/ios_bundle.png" /></p>
 </li>
-<li><p>Initialize the bundle data (first time only). Copying and preparing the data to be ready to use by the SDK can take some time (depending on the size of the offline folder itself). That’s why there’s a method for this called [COAUtils initBundleData]. We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p></li>
-<li><p>Init the SDK in Bundle Mode by calling: initForBundleMode:
-From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.</p></li>
+<li><p class="first">Initialize the bundle data (optional, first run only). Copying and preparing the data to be ready to use by the SDK can take some time (depending on the size of the offline folder itself). That’s why there’s a method for this called [COAUtils initBundleData]. We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p>
+</li>
+<li><p class="first">Init the SDK in Bundle Mode by calling: initForBundleMode:
+From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="positional-experiences">
@@ -398,9 +399,9 @@ From now on, the SDK will search for known targets installed locally, and once d
 <p>For this purpose, CamOnApp’s SDK provides an default UI indicating when is a good moment to place an experience (meaning, the user has a ground plane in front of him). If you need to disable this UI in order to provide yours, all you have to do is call disableGroundPlaneHint.</p>
 <p>When a positional experience has started, the SDK will trigger the following callbacks:</p>
 <ul class="simple">
-<li><p>onGroundPlaneFound: there’s a ground plane in front of the user. He could tap the screen in order to place the experience.</p></li>
-<li><p>onGroundPlaneLost: the ground plane has been lost. The user will have to find a new one.</p></li>
-<li><p>onAnchorPointCreated: the user has successfuly placed the experience in a ground plane.</p></li>
+<li>onGroundPlaneFound: there’s a ground plane in front of the user. He could tap the screen in order to place the experience.</li>
+<li>onGroundPlaneLost: the ground plane has been lost. The user will have to find a new one.</li>
+<li>onAnchorPointCreated: the user has successfuly placed the experience in a ground plane.</li>
 </ul>
 </div>
 </div>
@@ -408,337 +409,390 @@ From now on, the SDK will search for known targets installed locally, and once d
 <h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="coaviewcontroller">
 <h3>COAViewController<a class="headerlink" href="#coaviewcontroller" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
-<span class="cm"> Use this constructor to put the simulation in targetless mode:</span>
-<span class="cm"> - Scanner will not be enabled because experiences do not follow targets</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="nf">initTargetlessMode</span><span class="p">;</span>
+<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span>  <span class="cm">/**</span>
+<span class="cm">   Use this constructor to put the simulation in targetless mode:</span>
+<span class="cm">   - Scanner will not be enabled because experiences do not follow targets</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="n">initTargetlessMode</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Use this constructor to put the simulation in default mode:</span>
-<span class="cm"> - Cloud recognition is enabled</span>
-<span class="cm"> - Offline targets are enabled</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="nf">initTargetObjectMode</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Use this constructor to put the simulation in default mode:</span>
+<span class="cm">   - Cloud recognition is enabled</span>
+<span class="cm">   - Offline targets are enabled</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="n">initTargetObjectMode</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Use this constructor to put the simulation in bundle mode:</span>
-<span class="cm"> - Cloud recognition is disabled</span>
-<span class="cm"> - Offline targets are disabled</span>
-<span class="cm"> - Targets must be installed manually providing dat/xml/json</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="nf">initTargetObjectBundleMode</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Use this constructor to put the simulation in bundle mode:</span>
+<span class="cm">   - Cloud recognition is disabled</span>
+<span class="cm">   - Offline targets are disabled</span>
+<span class="cm">   - Targets must be installed manually providing dat/xml/json</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="n">initTargetObjectBundleMode</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Use this constructor to put the simulation in face detection mode</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="nf">initTargetFaceMode</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Use this constructor to put the simulation in face detection mode</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span> <span class="n">initTargetFaceMode</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Gets the current device orientation</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="n">UIInterfaceOrientation</span><span class="p">)</span> <span class="nf">getCurrentInterfaceOrientation</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Gets the current device orientation</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="n">UIInterfaceOrientation</span><span class="p">)</span> <span class="n">getCurrentInterfaceOrientation</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Indicates if internet connection is available (or not).</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">connectedToInternet</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Indicates if internet connection is available (or not).</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">connectedToInternet</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Invoked when internet connectivity has been restored</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onInternetReachable</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Invoked when internet connectivity has been restored</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onInternetReachable</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Invoked when internet connectivity has been lost</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onInternetNotReachable</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Invoked when internet connectivity has been lost</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onInternetNotReachable</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Invoked when the experience started loading</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onExperienceLoadingStarted</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Invoked when the experience started loading</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onExperienceLoadingStarted</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Invoked when the experience ended loading</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onExperienceLoadingEnded</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Invoked when the experience ended loading</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onExperienceLoadingEnded</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> The detected experience is now running and is being shown to the user.</span>
-<span class="cm"> This method is always dispatched on the main queue.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onExperienceStartedWithInfo:</span><span class="p">(</span><span class="n">COAExperienceInfo</span> <span class="o">*</span><span class="p">)</span><span class="nv">experienceInfo</span> <span class="nf">inView:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">insideView</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   The detected experience is now running and is being shown to the user.</span>
+<span class="cm">   This method is always dispatched on the main queue.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">onExperienceStartedWithInfo</span><span class="p">:(</span><span class="n">COAExperienceInfo</span> <span class="o">*</span><span class="p">)</span><span class="n">experienceInfo</span> <span class="nl">inView</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">insideView</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> The execution of the experience has ended. The ViewController is now ready to detect (and execute) a new experience.</span>
-<span class="cm"> This method is always dispatched on the main queue.</span>
-<span class="cm">*/</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onExperienceStopped</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   The execution of the experience has ended. The ViewController is now ready to detect (and execute) a new experience.</span>
+<span class="cm">   This method is always dispatched on the main queue.</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onExperienceStopped</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> The camera has lost (or gained) focus over the target. This method is called every time the focus changes. &quot;inView&quot; will be YES when the target is visible within the camera (NO otherwise).</span>
-<span class="cm"> This method is always dispatched on the main queue.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onExperienceSourceChanged:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">inView</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   The camera has lost (or gained) focus over the target. This method is called every time the focus changes. &quot;inView&quot; will be YES when the target is visible within the camera (NO otherwise).</span>
+<span class="cm">   This method is always dispatched on the main queue.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">onExperienceSourceChanged</span><span class="p">:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">inView</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new experience has been detected.</span>
-<span class="cm"> This method is a previous step to onExperienceDetectedWithId and should not affect the main queue.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onExperiencePreDetectedWithId:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">experienceId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new experience has been detected.</span>
+<span class="cm">   This method is a previous step to onExperienceDetectedWithId and should not affect the main queue.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">onExperiencePreDetectedWithId</span><span class="p">:(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">experienceId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new experience has been detected and a download has been triggered for its contents.</span>
-<span class="cm"> This method is always dispatched on the main queue.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onExperienceDetectedWithId:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">experienceId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new experience has been detected and a download has been triggered for its contents.</span>
+<span class="cm">   This method is always dispatched on the main queue.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">onExperienceDetectedWithId</span><span class="p">:(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">experienceId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> SDK has finished loading, and the camera is now visible. From this moment on, it&#39;s safe to</span>
-<span class="cm"> call any SDK method.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onCameraPresented</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   SDK has finished loading, and the camera is now visible. From this moment on, it&#39;s safe to</span>
+<span class="cm">   call any SDK method.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onCameraPresented</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Informs whether any trackable exists at this time.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">anyCurrentTrackable</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Informs whether any trackable exists at this time.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">anyCurrentTrackable</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Informs that the last kwnown trackable has been lost.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onTrackableLost</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Informs that the last kwnown trackable has been lost.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onTrackableLost</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Informs that a trackable (of any type) has been found.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onTrackableFound</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Informs that a trackable (of any type) has been found.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onTrackableFound</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A ground plane has been lost. It&#39;s needed in order to place experiences in the ground.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onGroundPlaneLost</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A ground plane has been lost. It&#39;s needed in order to place experiences in the ground.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onGroundPlaneLost</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A ground plane has been found: now the experience can be placed.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onGroundPlaneFound</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A ground plane has been found: now the experience can be placed.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onGroundPlaneFound</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> An anchor point has been created: now the experience has been placed successfuly.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onAnchorPointCreated</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   An anchor point has been created: now the experience has been placed successfuly.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onAnchorPointCreated</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> By default, CamOnApp SDK shows a default UI hint for positional experiences.</span>
-<span class="cm"> This method disables it, in order to provide a custom UI (if needed).</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">disableGroundPlaneHint</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   By default, CamOnApp SDK shows a default UI hint for positional experiences.</span>
+<span class="cm">   This method disables it, in order to provide a custom UI (if needed).</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">disableGroundPlaneHint</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Custom events emmited by the experience (via scripting)</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onCustomEventEmitted:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">eventName</span> <span class="nf">withInfo:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">eventInfo</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Custom events emmited by the experience (via scripting)</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">onCustomEventEmitted</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">eventName</span> <span class="nl">withInfo</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">eventInfo</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Adds custom information to setup the experience (to be used by the scripts inside the experience)</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setInitialGlobalExperienceData:</span> <span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span> <span class="nv">data</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Adds custom information to setup the experience (to be used by the scripts inside the experience)</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">setInitialGlobalExperienceData</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span> <span class="n">data</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Callback for Custom Scheme</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onWallpaperReady:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">wallpaperUri</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Callback for Custom Scheme</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">onWallpaperReady</span><span class="p">:(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">wallpaperUri</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Indicates whether an experience is currently alive or not.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">anyExperienceAlive</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Indicates whether an experience is currently alive or not.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">anyExperienceAlive</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Indicates whether an experience is currently running or not.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">anyExperienceRunning</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Indicates whether an experience is currently running or not.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">anyExperienceRunning</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Indicates whether an experience has been detected, even if it&#39;s not yet loaded</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">anyExperienceDetected</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Indicates whether an experience has been detected, even if it&#39;s not yet loaded</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">anyExperienceDetected</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new ActionDelegate will be configured for every callback possible within an experience.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setActionDelegate:</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="nv">delegate</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new ActionDelegate will be configured for every callback possible within an experience.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">setActionDelegate</span><span class="p">:</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span> <span class="n">delegate</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> If enabled, Location permissions will be requested and Location Info will be obtained from LocationManager</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">setGeoLocationEnabled:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">enabled</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   If enabled, Location permissions will be requested and Location Info will be obtained from LocationManager</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">setGeoLocationEnabled</span><span class="p">:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">enabled</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Starts the experience matching the given Id.</span>
-<span class="cm"> This function returns YES if start process ignition was successful, NO otherwise</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">startExperienceWithId:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="nv">experienceId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Starts the experience matching the given Id.</span>
+<span class="cm">   This function returns YES if start process ignition was successful, NO otherwise</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nl">startExperienceWithId</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span> <span class="n">experienceId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Removes the currently running experience</span>
-<span class="cm"> This function returns YES if remove process ignition was successful, NO otherwise</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">removeCurrentExperience</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Removes the currently running experience</span>
+<span class="cm">   This function returns YES if remove process ignition was successful, NO otherwise</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">removeCurrentExperience</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Removes the currently running experience and leaves scanning mode</span>
-<span class="cm"> This function returns YES if remove process ignition was successful, NO otherwise</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="nf">removeCurrentExperienceAndLeaveScanningMode</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Removes the currently running experience and leaves scanning mode</span>
+<span class="cm">   This function returns YES if remove process ignition was successful, NO otherwise</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">removeCurrentExperienceAndLeaveScanningMode</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> By enabling scanning mode, the SDK will be able to detect targets. Scanning mode is disabled by default.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">enableScanningMode</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   By enabling scanning mode, the SDK will be able to detect targets. Scanning mode is disabled by default.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">enableScanningMode</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Callback called when scanning mode has been enabled.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onScanningModeEnabled</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Callback called when scanning mode has been enabled.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onScanningModeEnabled</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Disables scanning mode preventing any target to be detected. This is the default behaviour.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">disableScanningMode</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Disables scanning mode preventing any target to be detected. This is the default behaviour.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">disableScanningMode</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Callback called when scanning mode has been disabled.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onScanningModeDisabled</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Callback called when scanning mode has been disabled.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onScanningModeDisabled</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> When scanning mode is enabled, the SDK will try to find known targets for 12 seconds.</span>
-<span class="cm"> If no target has been found during that time, this callback will be triggered, scanning mode</span>
-<span class="cm"> will be disabled and it will need to be enabled again (if needed) by calling enableScanningMode().</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onTargetDetectionTimeoutReached</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   When scanning mode is enabled, the SDK will try to find known targets for 12 seconds.</span>
+<span class="cm">   If no target has been found during that time, this callback will be triggered, scanning mode</span>
+<span class="cm">   will be disabled and it will need to be enabled again (if needed) by calling enableScanningMode().</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">onTargetDetectionTimeoutReached</span><span class="p">;</span>
 
-<span class="cm">/**</span>
-<span class="cm"> Invokend when an internal error occurs</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">onErrorWithCode:</span><span class="p">(</span><span class="n">COAError</span><span class="p">)</span> <span class="nv">errorCode</span> <span class="nf">description:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">description</span><span class="p">;</span>
+  <span class="cm">/**</span>
+<span class="cm">   Invokend when an internal error occurs</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">onErrorWithCode</span><span class="p">:(</span><span class="n">COAError</span><span class="p">)</span> <span class="n">errorCode</span> <span class="nl">description</span><span class="p">:(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">description</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Starts a video session recording. Once completed, stopVideoRecording needs to be called.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">startRecording</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Starts a video session recording. Once completed, stopVideoRecording needs to be called.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">startRecording</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Stops the video recording session.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">stopRecording</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Stops the video recording session.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">stopRecording</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> This method is called when the recorded movie has been processed and it&#39;s ready to play at indicated path</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onRecordedMovieIsReady:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">path</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   This method is called when the recorded movie has been processed and it&#39;s ready to play at indicated path</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onRecordedMovieIsReady</span><span class="p">:(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">path</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> This methods allows the SDK to safely close COAViewController (experience flow)</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">safeCloseViewControllerAnimated:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span> <span class="nf">completion:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">__nullable</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="nv">completion</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   This methods allows the SDK to safely close COAViewController (experience flow)</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">safeCloseViewControllerAnimated</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">animated</span> <span class="nl">completion</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span> <span class="n">__nullable</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="n">completion</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Toggles device&#39;s flash torch (if available).</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">toggleFlashTorchMode</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Enable/Disable device&#39;s flash torch (if available).</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">setFlashTorchMode</span><span class="p">:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">on</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Indicates whether this device has flash or not.</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">flashIsAvailable</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Indicates whether flash is currently active or not.</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span> <span class="n">flashIsActive</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Call this fuction in flows where you need to go from one MirageViewController to another MirageViewController</span>
+<span class="cm">   This method makes the necessary deinitialization</span>
+<span class="cm">  */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">deinitSDK</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="coautils">
 <h3>COAUtils<a class="headerlink" href="#coautils" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm"> Init any bundle data (targets and experiences). If the SDK was initiualized with initTargetObjectBundleMode</span>
-<span class="cm"> the first time a load of bundle data will be needed. This may take some time (based on how </span>
-<span class="cm"> many targets and experieces need to be configured). If this method is not called, it will be handled </span>
-<span class="cm"> internally by the SDK the first time it loads (which will make that loading time higher). </span>
-<span class="cm">*/</span>
-<span class="p">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">initBundleData</span><span class="p">;</span>
+<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span>  <span class="cm">/*</span>
+<span class="cm">   Init any bundle data (targets and experiences). If the SDK was initiualized with initTargetObjectBundleMode</span>
+<span class="cm">   the first time a load of bundle data will be needed. This may take some time (based on how </span>
+<span class="cm">   many targets and experieces need to be configured). If this method is not called, it will be handled </span>
+<span class="cm">   internally by the SDK the first time it loads (which will make that loading time higher). </span>
+<span class="cm">  */</span>
+  <span class="o">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">initBundleData</span><span class="p">;</span>
+
+  <span class="cm">/*</span>
+<span class="cm">   Gets the current SDK version.</span>
+<span class="cm">  */</span>
+  <span class="o">+</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">getSDKVersion</span><span class="p">;</span>
+
+  <span class="cm">/**</span>
+<span class="cm">   * Indicates whether the current device support positional experiences (through ARKit) or not.</span>
+<span class="cm">   * */</span>
+  <span class="o">+</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">deviceSupportsARKit</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="coaactiondelegate">
 <h3>COAActionDelegate<a class="headerlink" href="#coaactiondelegate" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm"> A new browser should be opened with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">openUrlInBrowser:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">plainUrl</span> <span class="nf">withExternalBrowser:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">inExternalBrowser</span><span class="p">;</span>
+<div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span>  <span class="cm">/*</span>
+<span class="cm">   A new browser should be opened with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">openUrlInBrowser</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">plainUrl</span> <span class="nl">withExternalBrowser</span><span class="p">:</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">inExternalBrowser</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new custom schema should be precessed with the given data.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">processCustomSchema:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">customSchema</span> <span class="nf">withData:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">data</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new custom schema should be precessed with the given data.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">processCustomSchema</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">customSchema</span> <span class="nl">withData</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">data</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A Facebook profile should be opened with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">openFacebookProfile:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">profileId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A Facebook profile should be opened with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">openFacebookProfile</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">profileId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> An Instagram profile should be opened with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">openInstagramProfile:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">profileId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   An Instagram profile should be opened with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">openInstagramProfile</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">profileId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A Twitter profile should be opened with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">openTwitterProfile:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">profileId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A Twitter profile should be opened with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">openTwitterProfile</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">profileId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A phone call has been requested with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">callPhoneNumber:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">phoneNumber</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A phone call has been requested with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">callPhoneNumber</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">phoneNumber</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A SMS should be sent with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">sendSMS:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">phoneNumber</span> <span class="nf">withMessage:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">message</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A SMS should be sent with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">sendSMS</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">phoneNumber</span> <span class="nl">withMessage</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">message</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> Adding a new contact to the device contact list has been requested with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">addContact:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">firstName</span> <span class="nf">lastName:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">lastName</span> <span class="nf">phoneNumber:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">phoneNumber</span> <span class="nf">organization:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">organization</span> <span class="nf">jobTitle:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">jobTitle</span> <span class="nf">email:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">email</span> <span class="nf">twitterProfile:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">twitterProfile</span> <span class="nf">facebookProfile:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">facebookProfile</span> <span class="nf">skypeProfile:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">skypeProfile</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   Adding a new contact to the device contact list has been requested with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">addContact</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">firstName</span> <span class="nl">lastName</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">lastName</span> <span class="nl">phoneNumber</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">phoneNumber</span> <span class="nl">organization</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">organization</span> <span class="nl">jobTitle</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">jobTitle</span> <span class="nl">email</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">email</span> <span class="nl">twitterProfile</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">twitterProfile</span> <span class="nl">facebookProfile</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">facebookProfile</span> <span class="nl">skypeProfile</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">skypeProfile</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new Facebook post should be added with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">postInFacebook:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">feedMessage</span> <span class="nf">name:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">feedName</span> <span class="nf">caption:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">feedCaption</span> <span class="nf">description:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">feedDescription</span> <span class="nf">imageUrl:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">imageUrl</span> <span class="nf">link:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">feedLink</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new Facebook post should be added with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">postInFacebook</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">feedMessage</span> <span class="nl">name</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">feedName</span> <span class="nl">caption</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">feedCaption</span> <span class="nl">description</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">feedDescription</span> <span class="nl">imageUrl</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">imageUrl</span> <span class="nl">link</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">feedLink</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new Facebook like should be added to the user&#39;s preferences with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">likeFacebookPage:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">pageId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new Facebook like should be added to the user&#39;s preferences with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">likeFacebookPage</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">pageId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new Twitter wall message should be added with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">postInTwitter:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">textToShare</span> <span class="nf">imageUrl:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">imageUrl</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new Twitter wall message should be added with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">postInTwitter</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">textToShare</span> <span class="nl">imageUrl</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">imageUrl</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A new Twitter follow should be added to the user&#39;s preferences with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">followTwitterUser:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">userName</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A new Twitter follow should be added to the user&#39;s preferences with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">followTwitterUser</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">userName</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> An email should be sent with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">sendEmail:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">addressTo</span> <span class="nf">withSubject:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">subject</span> <span class="nf">body:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">body</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   An email should be sent with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">sendEmail</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">addressTo</span> <span class="nl">withSubject</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">subject</span> <span class="nl">body</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">body</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> The device store app should be opened with the given app id.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">openAppInStore:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">appstoreId</span> <span class="nf">googlePlay:</span><span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">googlePlayId</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   The device store app should be opened with the given app id.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">openAppInStore</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">appstoreId</span> <span class="nl">googlePlay</span><span class="p">:(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">googlePlayId</span><span class="p">;</span>
 
-<span class="cm">/*</span>
-<span class="cm"> A Whatsapp should be sent with the given parameters.</span>
-<span class="cm"> */</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">sendWhatsapp:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="nv">phoneNumber</span> <span class="nf">withMessage:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="nv">message</span><span class="p">;</span>
+  <span class="cm">/*</span>
+<span class="cm">   A Whatsapp should be sent with the given parameters.</span>
+<span class="cm">   */</span>
+  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nl">sendWhatsapp</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span> <span class="n">phoneNumber</span> <span class="nl">withMessage</span><span class="p">:</span> <span class="p">(</span><span class="bp">NSString</span><span class="o">*</span><span class="p">)</span><span class="n">message</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="libraries-included">
+<h2>Libraries included<a class="headerlink" href="#libraries-included" title="Permalink to this headline">¶</a></h2>
+<p>The following open source libraries are used within the iOS SDK:</p>
+<ul class="simple">
+<li>Reachability</li>
+<li>GPUImage</li>
+<li>Curl</li>
+<li>LibPng</li>
+<li>LibZip</li>
+<li>Lua</li>
+<li>Crimild</li>
+<li>JsonCpp</li>
+<li>RapidXml</li>
+<li>Sol</li>
+<li>SQLiteCpp</li>
+</ul>
 </div>
 </div>
 
@@ -760,7 +814,7 @@ From now on, the SDK will search for known targets installed locally, and once d
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, camonapp
+        &copy; Copyright 2020, CamOnApp
 
     </p>
   </div>

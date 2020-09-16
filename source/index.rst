@@ -3,25 +3,23 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
 Overview
 ================================================
 
 Download
 -------------
 
-You can download the latest version of the CamOnApp SDK from the link below, including all the required files to integrate it into your existing applications.
+The latest version of CamOnApp SDK includes everything needed to add AR to your app, as well as sample projects to understand how it works.
 
+Current latest SDK version by platform:
 
-Examples 
--------------
-
-You can also download the SDK along with example projects for each of the supported platforms.
+* Android: 4.0.8 (`download <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/4.0.8/SDK-Android.zip>`_)
+* iOS: 4.1.1 (`download <https://s3.amazonaws.com/assets-studio.camonapp.com/files/sdk/4.1.1/SDK-iOS.zip>`_)
 
 Documentation
 -------------
 
-Additionally, you can check the iOS Integration Guide or Android Integration Guide for a more detailed explanation about how to fully integrate the CamOnApp SDK with your existing application.
+Additionally, you can check the Android/iOS Integration Guide for a more detailed explanation about how to fully integrate the CamOnApp SDK within your existing application.
 
 Support
 -------------
@@ -31,7 +29,7 @@ For support, please contact us at sdk_support@camonapp.com
 .. toctree::
    :hidden:
    :maxdepth: 2
-   :caption: SDK Integration
+   :caption: Mobile SDK Documentation
    :glob:
 
    android/*

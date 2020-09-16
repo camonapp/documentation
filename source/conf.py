@@ -20,9 +20,9 @@
 # -- Project information -----------------------------------------------------
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
-project = 'CAMONAPP'
-copyright = '2020, camonapp'
-author = 'camonapp'
+project = ''
+copyright = '2020, CamOnApp'
+author = 'CamOnApp'
 
 # The short X.Y version
 version = ''
@@ -99,7 +99,7 @@ html_static_path = ['_static']
 html_css_files = [
     'css/custom.css',
 ]
-html_logo = 'logo.png'
+html_logo = 'img/logo.png'
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #

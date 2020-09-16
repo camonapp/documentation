@@ -7,63 +7,73 @@
 #### Android Studio
 
   * Open your existing project (or create a new one)
-  * Create the libs folder under app (if not already there)
-  * Copy the CamOnApp SDK (CamOnApp.aar) to the libs folder
-
+  * Create the libs folder under app (if needed)
+  * Copy the CamOnApp SDK (camonappsdk.aar) to the libs folder
 
     ![](/_static/img/android_setup_1.png)
-  * In the next screen, select CamOnAppSDK.aar from your computer
-  * Once added, go to the app's build.gradle and make sure it starts like this:
 
-```
-    dependencies {
-        implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
-    }
-```
-### Android Manifest: required changes
+### Android Manifest
 
-The rest of the Setup Guide is independent of whether you set up the project with Eclipse or Android Studio. Add the following permissions to your AndroidManifest.xml:
+Add the following configuration to your AndroidManifest.xml:
 
 ```html
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yourpackage"
-    android:versionCode="1"
-    android:versionName="@string/app_version" >
- 
-    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
-    <uses-feature android:name="android.hardware.camera" />
-	<uses-feature android:name="android.hardware.telephony" android:required="false" />
-	<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
-	<uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+  <?xml version="1.0" encoding="utf-8"?>
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.yourpackage"
+      android:versionCode="1"
+      android:versionName="@string/app_version" >
+   
+      <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+      <uses-feature android:name="android.hardware.camera" />
+      <uses-feature android:name="android.hardware.telephony" android:required="false" />
+      <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+      <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    
-    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
-    <supports-gl-texture android:name="GL_OES_compressed_paletted_texture" />
+      <uses-permission android:name="android.permission.CAMERA" />
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <uses-permission android:name="android.permission.VIBRATE" />
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
+      
+      <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture" />
+      <supports-gl-texture android:name="GL_OES_compressed_paletted_texture" />
 
-    ...
-
-</manifest>
+  </manifest>
 ```
 
 The activity extending CamOnAppActivity must override "configChanges" and "screenOrientation":
 
 ```html
-<activity
-	android:name="com.yourpackage.MainActivity"
- 	android:configChanges="orientation|keyboardHidden"
- 	android:screenOrientation="portrait" >
-</activity>
+  <activity
+  	android:name="com.yourpackage.MainActivity"
+   	android:configChanges="orientation|keyboardHidden"
+   	android:screenOrientation="portrait" >
+  </activity>
+```
+
+### App Gradle
+
+Make sure you add the following config lines to the app's build.gradle:
+
+```
+  android {
+      
+      compileOptions {
+          sourceCompatibility JavaVersion.VERSION_1_8
+          targetCompatibility JavaVersion.VERSION_1_8
+      }
+  }
+
+  dependencies {
+      implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
+      implementation 'androidx.appcompat:appcompat:1.1.0'
+      implementation "androidx.camera:camera-core:1.0.0-alpha06"
+      implementation "androidx.camera:camera-camera2:1.0.0-alpha06"
+      implementation 'com.google.ar:core:1.14.0'
+      implementation 'com.google.android.gms:play-services-location:17.0.0'
+  }
 ```
 
 ### License Setup
@@ -71,30 +81,25 @@ The activity extending CamOnAppActivity must override "configChanges" and "scree
 In order to get a valid license key, you should request it to the CamOnApp Team (see http://www.camonapp.com). Once obtained, the AndroidManifest.xml should be updated like this:
 
 ```html
-<?xml version="1.0" encoding="utf-8"?>
-<manifest ... >
-	...
-
-	<application ... >
-		...
-
-		<!-- Activity using CamOnAppFragment -->
-		<activity ... >
-			<meta-data
-                android:name="com.camonapp.LicenseUserKey"
-                android:value="@string/camonapp_license_user_key" />
-            <meta-data
-                android:name="com.camonapp.LicenseSecretKey"
-                android:value="@string/camonapp_license_secret_key" />
-            <meta-data
-                android:name="com.camonapp.LicenseRealKey"
-                android:value="@string/camonapp_license_real_key" />
-        </activity>
-
-    </application>
-
-</manifest>
+  <?xml version="1.0" encoding="utf-8"?>
+  <manifest>
+  	<application>
+  		<!-- Activity extending CamOnAppActivity -->
+  		<activity>
+  			<meta-data
+                  android:name="com.camonapp.LicenseUserKey"
+                  android:value="@string/camonapp_license_user_key" />
+              <meta-data
+                  android:name="com.camonapp.LicenseSecretKey"
+                  android:value="@string/camonapp_license_secret_key" />
+              <meta-data
+                  android:name="com.camonapp.LicenseRealKey"
+                  android:value="@string/camonapp_license_real_key" />
+          </activity>
+      </application>
+  </manifest>
 ```
+
 ### Supported Android Devices
 
 CamOnApp SDK is running on devices fulfilling the following requirements:
@@ -116,35 +121,33 @@ Once CamOnApp SDK has been configured, its usage is very straightforward. All yo
 
 ### Extending from CamOnAppActivity
 
-```Java
-public class CameraActivity extends CamOnAppActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+```java
+  public class CameraActivity extends CamOnAppActivity {
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
 
-        createView();
-        ...
-    }
+          createView();
+      }
 
-    private void createView() {
-        // Root view is defined within CamOnAppActivity
-        ViewGroup parentView = findViewById(android.R.id.content);
+      private void createView() {
+          // Root view is defined within CamOnAppActivity
+          ViewGroup parentView = findViewById(android.R.id.content);
 
-        RelativeLayout layout = (RelativeLayout) getLayoutInflater().inflate(R.layout.activity_main, null);
+          RelativeLayout layout = (RelativeLayout) getLayoutInflater().inflate(R.layout.activity_main, null);
 
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
-        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-        layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
-        layout.setLayoutParams(layoutParams);
+          RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+          layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
+          layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL, RelativeLayout.TRUE);
+          layout.setLayoutParams(layoutParams);
 
-        // Your root view needs to be added to CamOnApp's root view
-        parentView.addView(layout);
+          // Your root view needs to be added to CamOnApp's root view
+          parentView.addView(layout);
 
-        // Now you can use the view hierarchy as usual
-        View view = findViewById(R.id.your_view_id);
-        ...
-    }
-}
+          // Now you can use the view hierarchy as usual
+          View view = findViewById(R.id.your_view_id);
+      }
+  }
 ```
 
 ### Extending the functionality
@@ -157,6 +160,7 @@ Some of the features that could extended/listened to are:
    * Etc...
 
 ### Defining a custom ActionListener
+
 CamOnApp SDK provides a default action listener (named CamOnAppDefaultActionListener), which provides all the functionality needed for almost every experience callback. As the default action listener implements the CamOnAppActionListener interface, there are two options:
 
    * Create a new class that implements the CamOnAppActionListener interface (and implement every method from scratch according to the needs)
@@ -170,6 +174,13 @@ CamOnAppDefaultActionListener does NOT implement the following methods (they wil
    * onTwitterFollow
 
 Once the custom action listener was created (and configured) it will have to be attached to the activity by calling setActionListener.
+
+### Customizing default images
+
+There are two instances where default images can be overwritten, in order to provide a better user experience with the app's branding in it:
+
+  * res/drawable-hdpi/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience
+  * res/drawable-hdpi/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded
 
 ### A note about devices running Android 6.0+
 
@@ -185,6 +196,7 @@ The SDK can be initialized in 4 different modes:
    * TargetObject: scanner and target detection are enabled. Experiences can be either started by target detection or by id.
    * TargetObjectBundle: same as TargetOnject, but in bundle mode. In this mode, no internet connection is required (experiences and target need to be within the assets folder).
    * TargetFace: similar to TargetObject, where the only possible target is a human face.
+
 Once initialized, there are two ways of starting a new experience:
 
    * By target detection (image, cylinder, object)
@@ -206,17 +218,16 @@ The setup for bundle mode require the following steps:
 
      ![](/_static/img/android_bundle.png)
     
-   * Initialize the bundle data (first time only). Unzipping and preparing the data to be ready to use by the SDK can take some time (depending on the size of offline.zip itself). That's why there's a method for this called CamOnAppUtils.initBundleData(context). We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.
+   * Initialize the bundle data (optional, first run only). Unzipping and preparing the data to be ready to use by the SDK can take some time (depending on the size of offline.zip itself). That's why there's a method for this called CamOnAppUtils.initBundleData(context). We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.
    * Configure the SDK target mode as CamOnAppTargetMode.TARGET_OBJECT_BUNDLE:
 
-```Java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
+```java
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+  	super.onCreate(savedInstanceState);
 
-	setTargetMode(CamOnAppTargetMode.TARGET_OBJECT_BUNDLE);
-	...
-}
+  	setTargetMode(CamOnAppTargetMode.TARGET_OBJECT_BUNDLE);
+  }
 ```
 
 From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.
@@ -251,401 +262,408 @@ In order to boost the user experience and enable ARCore, the following steps nee
    * Add the ARCore dependency to your app's Gradle file:
    ```
     dependencies {
-        implementation 'com.google.ar:core:1.4.0'
+        implementation 'com.google.ar:core:1.14.0'
         ...
     }
    ```
-   * Check if the device supports ARCore and it's not installed. In that case, start the installation flow within the app:
-   ```Java
-    if (CamOnAppUtils.isARCoreSupported(this) && !CamOnAppUtils.isARCoreInstalled(this)) {
-        CamOnAppUtils.checkARCoreAvailability(this, new CamOnAppUtils.ARCoreAvailabilityCallback() {
-            @Override
-            public void unsupported() {
-                Log.i("ARCore", "ARCore is not supported");
-            }
+   * Check if the device supports ARCore and it's not installed (see Android's sample app as reference)
 
-            @Override
-            public void installed() {
-                Log.i("ARCore", "ARCore already installed");
-            }
-
-            @Override
-            public void installRequested() {
-                Log.i("ARCore", "ARCore install has been requested");
-            }
-
-            @Override
-            public void userDeclinesInstallation() {
-                Log.i("ARCore", "ARCore installation has been declined by user");
-            }
-
-            @Override
-            public void deviceNotCompatible() {
-                Log.i("ARCore", "ARCore is not compatib le with this device");
-            }
-
-            @Override
-            public void unknownError() {
-                Log.i("ARCore", "ARCore unknown error has occurred");
-            }
-        });
-    }
-   ```
 ## API
 
 ### CamOnAppActivity
 
-```Java
-/**
- * SDK has finished loading, and the camera is now visible. From this moment on, it's safe to
- * call any SDK method.
- * */
-public void onCameraPresented();
+```java
+  /**
+   * SDK has finished loading, and the camera is now visible. From this moment on, it's safe to
+   * call any SDK method.
+   * */
+  public void onCameraPresented();
 
-/**
- * Indicated whether the SDK has been initialized or not.
- * */
-public boolean cameraInitialized();
+  /**
+   * Indicated whether the SDK has been initialized or not.
+   * */
+  public boolean cameraInitialized();
 
-/**
- * A new ActionDelegate will be configured for every callback possible within an experience.
- * */
-public void setActionListener(CamOnAppActionListener actionListener);
+  /**
+   * A new ActionDelegate will be configured for every callback possible within an experience.
+   * */
+  public void setActionListener(CamOnAppActionListener actionListener);
 
-/**
- * Overrides current TargetMode. Default TargetMode is CamOnAppTargetMode.TARGET_OBJECT.
- * */
-public void setTargetMode(int mode);
+  /**
+   * Overrides current TargetMode. Default TargetMode is CamOnAppTargetMode.TARGET_OBJECT.
+   * */
+  public void setTargetMode(int mode);
 
-/**
- * Gets current TargetMode. Possible values defined within CamOnAppTargetMode.
- * */
-public int getTargetMode();
+  /**
+   * Gets current TargetMode. Possible values defined within CamOnAppTargetMode.
+   * */
+  public int getTargetMode();
 
-/**
- * By enabling scanning mode, the SDK will be able to detect targets. Scanning mode is disabled by default.
- */
-public void enableScanningMode();
+  /**
+   * By enabling scanning mode, the SDK will be able to detect targets. Scanning mode is disabled by default.
+   */
+  public void enableScanningMode();
 
-/**
- * Disables scanning mode preventing any target to be detected. This is the default behaviour.
- */
-public void disableScanningMode();
+  /**
+   * Disables scanning mode preventing any target to be detected. This is the default behaviour.
+   */
+  public void disableScanningMode();
 
-/**
- * When scanning mode is enabled, the SDK will try to find known targets for 12 seconds.
- * If no target has been found during that time, this callback will be triggered, scanning mode
- * will be disabled and it will need to be enabled again (if needed) by calling enableScanningMode().
- * */
-public void onTargetDetectionTimeoutReached();
+  /**
+   * When scanning mode is enabled, the SDK will try to find known targets for 12 seconds.
+   * If no target has been found during that time, this callback will be triggered, scanning mode
+   * will be disabled and it will need to be enabled again (if needed) by calling enableScanningMode().
+   * */
+  public void onTargetDetectionTimeoutReached();
 
-/**
- * Callback called when scanning mode has been disabled.
- * */
-public void onScanningModeDisabled();
+  /**
+   * Callback called when scanning mode has been disabled.
+   * */
+  public void onScanningModeDisabled();
 
-/**
- * Callback called when scanning mode has been enabled.
- * */
-public void onScanningModeEnabled();
+  /**
+   * Callback called when scanning mode has been enabled.
+   * */
+  public void onScanningModeEnabled();
 
-/**
- * A new experience has been detected and a download has been triggered for its contents.
- * You should override this method if a dialog needs to be shown to the user once the
- * experience has been detected.
- * @param experienceId Detected experience id
- * */
-public void onExperienceDetected(String experienceId);
+  /**
+   * A new experience has been detected and a download has been triggered for its contents.
+   * You should override this method if a dialog needs to be shown to the user once the
+   * experience has been detected.
+   * @param experienceId Detected experience id
+   * */
+  public void onExperienceDetected(String experienceId);
 
-/**
- * The detected experience is now running and is being shown to the user.
- * @param info Information about running experience
- * @param insideView Indicated whether the experience is running inside the target (or not)
- * */
-public void onExperienceStarted(COAExperienceInfo info, boolean insideView);
+  /**
+   * The detected experience is now running and is being shown to the user.
+   * @param info Information about running experience
+   * @param insideView Indicated whether the experience is running inside the target (or not)
+   * */
+  public void onExperienceStarted(COAExperienceInfo info, boolean insideView);
 
-/**
- * The execution of the experience has ended. The Activity is
- * now ready to detect (and execute) a new experience.
- * */
-public void onExperienceStopped();
+  /**
+   * The execution of the experience has ended. The Activity is
+   * now ready to detect (and execute) a new experience.
+   * */
+  public void onExperienceStopped();
 
-/**
- * The camera has lost (or gained) focus over the target. This method is called
- * every time the focus changes.
- * @param inView The experience's target is within the camera view
- * */
-public void onExperienceSourceChanged(boolean inView);
+  /**
+   * The camera has lost (or gained) focus over the target. This method is called
+   * every time the focus changes.
+   * @param inView The experience's target is within the camera view
+   * */
+  public void onExperienceSourceChanged(boolean inView);
 
-/**
- * Starts an experience matching the provided Id.
- * @param experienceId
- */
-public boolean startExperienceWithId(String experienceId);
+  /**
+   * Starts an experience matching the provided Id.
+   * @param experienceId
+   */
+  public boolean startExperienceWithId(String experienceId);
 
-/**
- * Indicates whether an experience is currently running or not.
- * */
-public boolean anyExperienceRunning();
+  /**
+   * Indicates whether an experience is currently running or not.
+   * */
+  public boolean anyExperienceRunning();
 
-/**
- * Indicates if there's any experiencie detected, even if it's not yet started.
- */
-public boolean anyExperienceDetected();
+  /**
+   * Indicates if there's any experiencie detected, even if it's not yet started.
+   */
+  public boolean anyExperienceDetected();
 
-/**
- * Informs whether any trackable exists at this time.
- * */
-public boolean anyCurrentTrackable();
+  /**
+   * Informs whether any trackable exists at this time.
+   * */
+  public boolean anyCurrentTrackable();
 
-/**
- * Removes the current experience (if any).
- */
-public void removeCurrentExperience();
+  /**
+   * Removes the current experience (if any).
+   */
+  public void removeCurrentExperience();
 
-/**
- * Removes the current experience (if any) and leaves scanning mode (avoids a new target detection).
- */
-public void removeCurrentExperienceAndLeaveScanningMode();
+  /**
+   * Removes the current experience (if any) and leaves scanning mode (avoids a new target detection).
+   */
+  public void removeCurrentExperienceAndLeaveScanningMode();
 
-/**
- * Switches the camera from back to front (or otherwise).
- * */
-public void switchCamera();
+  /**
+   * Switches the camera from back to front (or otherwise).
+   * */
+  public void switchCamera();
 
-/**
- * When scanning mode is enabled, a scan overlay will be shown by default as a UI helper
- * indicating that a scanning is in progress. This method enables/disables that UI.
- * */
-public void setShowScanOverlay(boolean show);
+  /**
+   * When scanning mode is enabled, a scan overlay will be shown by default as a UI helper
+   * indicating that a scanning is in progress. This method enables/disables that UI.
+   * */
+  public void setShowScanOverlay(boolean show);
 
-/**
- * When a experience is loading, a loading image will be shown together with a progress indicator.
- * This method enables/disables that loading UI.
- * */
-public void setShowLoadingScene(boolean show);
+  /**
+   * When a experience is loading, a loading image will be shown together with a progress indicator.
+   * This method enables/disables that loading UI.
+   * */
+  public void setShowLoadingScene(boolean show);
 
-/**
- * Informs that the last kwnown trackable has been lost.
- * */
-public void onTrackableLost();
+  /**
+   * Informs that the last kwnown trackable has been lost.
+   * */
+  public void onTrackableLost();
 
-/**
- * Informs that a trackable (of any type) has been found.
- * */
-public void onTrackableFound();
+  /**
+   * Informs that a trackable (of any type) has been found.
+   * */
+  public void onTrackableFound();
 
-/**
- * By default, CamOnApp SDK shows a default UI hint for positional experiences.
- * This method disables it, in order to provide a custom UI (if needed).
- * */
-public void disableGroundPlaneHint();
+  /**
+   * By default, CamOnApp SDK shows a default UI hint for positional experiences.
+   * This method disables it, in order to provide a custom UI (if needed).
+   * */
+  public void disableGroundPlaneHint();
 
-/**
- * A ground plane has been lost. It's needed in order to place experiences in the ground.
- * */
-public void onGroundPlaneLost();
+  /**
+   * A ground plane has been lost. It's needed in order to place experiences in the ground.
+   * */
+  public void onGroundPlaneLost();
 
-/**
- * A ground plane has been found: now the experience can be placed.
- * */
-public void onGroundPlaneFound();
+  /**
+   * A ground plane has been found: now the experience can be placed.
+   * */
+  public void onGroundPlaneFound();
 
-/**
- * An anchor point has been created: now the experience has been placed successfuly.
- * */
-public void onAnchorPointCreated();
+  /**
+   * An anchor point has been created: now the experience has been placed successfuly.
+   * */
+  public void onAnchorPointCreated();
 
-/**
- * Requests a new screenshot to be made to what the user is experimenting.
- * The screenshot will contain the camera + AR contents.
- * As this is an asynchronous process, the callback onScreenshotReady will have to be
- * implemented as well.
- * */
-public void requestScreenshot();
+  /**
+   * Requests a new screenshot to be made to what the user is experimenting.
+   * The screenshot will contain the camera + AR contents.
+   * As this is an asynchronous process, the callback onScreenshotReady will have to be
+   * implemented as well.
+   * */
+  public void requestScreenshot();
 
-/**
- * Called when the screenshot is ready.
- * @param screenshot The resulting screenshot as a bitmap
- * */
-public void onScreenshotReady(Bitmap screenshot);
+  /**
+   * Called when the screenshot is ready.
+   * @param screenshot The resulting screenshot as a bitmap
+   * */
+  public void onScreenshotReady(Bitmap screenshot);
 
-/**
- * Starts a video session recording. Once completed, stopVideoRecording needs to be called.
- * @param listener A callback for each possible status during the recording lifecycle:
- *                 recordingStarted, recordingStopped, recordingProcessing, recordingFailed
- * */
-public void startVideoRecording(MediaRecorder.MediaRecorderListener listener, float scale);
+  /**
+   * Starts a video session recording. Once completed, stopVideoRecording needs to be called.
+   * @param listener A callback for each possible status during the recording lifecycle:
+   *                 recordingStarted, recordingStopped, recordingProcessing, recordingFailed
+   * */
+  public void startVideoRecording(MediaRecorder.MediaRecorderListener listener, float scale);
 
-/**
- * Stops the video recording session.
- * */
-public void stopVideoRecording();
+  /**
+   * Stops the video recording session.
+   * */
+  public void stopVideoRecording();
 
-/**
- * Indicates whether there's a recording session in progress or not.
- * */
-public boolean isVideoRecording();
+  /**
+   * Indicates whether there's a recording session in progress or not.
+   * */
+  public boolean isVideoRecording();
 
-/**
- * Indicates if geolocation experiences are enabled or not
- * */
-public boolean isGeolocationEnabled();
+  /**
+   * Indicates if geolocation experiences are enabled or not
+   * */
+  public boolean isGeolocationEnabled();
 
-/**
- * If enabled, experiences will be shown based on user's geolocation
- * */
-public void setGeolocationEnabled(boolean enabled);
+  /**
+   * If enabled, experiences will be shown based on user's geolocation
+   * */
+  public void setGeolocationEnabled(boolean enabled);
 
-/**
- * Indicates if internet connection is available (or not).
- */
-public boolean isInternetAvailable();
+  /**
+   * Indicates if internet connection is available (or not).
+   */
+  public boolean isInternetAvailable();
 
-/**
- * Invoked when internet connection is lost.
- */
-public void onInternetNotReachable();
+  /**
+   * Invoked when internet connection is lost.
+   */
+  public void onInternetNotReachable();
 
-/**
- * Invoked when internet connection has been recovered.
- */
-public void onInternetReachable();
+  /**
+   * Invoked when internet connection has been recovered.
+   */
+  public void onInternetReachable();
 
-/**
- * Enable/Disable device's flash torch (if available).
- * */
-public void setFlashTorchMode(boolean on);
+  /**
+   * Enable/Disable device's flash torch (if available).
+   * */
+  public void setFlashTorchMode(boolean on);
 
-/**
- * Invoked when an error occurs and needs to be handled by the application.
- */
-public void onError(COAError error);
+  /**
+   * Invoked when an error occurs and needs to be handled by the application.
+   */
+  public void onError(COAError error);
+
+  /**
+   * Adds custom information to setup the experience (to be used by the scripts inside the experience)s
+  * */
+  public void setInitialGlobalExperienceData(Map<String, String> data);
+
+  /**
+   * Handles custom events emitted by experience's scrips.
+  * */
+  public void onCustomEventEmitted(String eventName, String eventInfo);
+
+  /**
+   * Forces SDK deinitialization. Useful for avoiding Android Activity lifecyle "normal" order
+   * between new Activities and old ones.
+   * */
+  public void deinitSDK();
+
+  /**
+    * SDK has been deinitialized correctly.
+  * */
+  public void onSDKDeinited();
 ```
 
 ### CamOnAppTargetMode
 
-```Java
-// TargetObject mode: default mode. Detects objects and images from a known database of targets
-public static final int TARGET_OBJECT
+```java
+  // TargetObject mode: default mode. Detects objects and images from a known database of targets
+  public static final int TARGET_OBJECT
 
-// TargetObjectBundle mode: similar behaviour as TargetObject, but in bundle mode: no internet required at all
-public static final int TARGET_OBJECT_BUNDLE
+  // TargetObjectBundle mode: similar behaviour as TargetObject, but in bundle mode: no internet required at all
+  public static final int TARGET_OBJECT_BUNDLE
 
-// Targetless mode: start experiences without target detection. Mainly used for 360 & positional experiences
-public static final int TARGETLESS
+  // Targetless mode: start experiences without target detection. Mainly used for 360 & positional experiences
+  public static final int TARGETLESS
 
-// TargetFace mode: face detection only
-public static final int TARGET_FACE
+  // TargetFace mode: face detection only
+  public static final int TARGET_FACE
 ```
+
 ### CamOnAppUtils
 
-```Java
-/**
- * Init any bundle data (targets and experiences). If the SDK is loaded in TARGET_OBJECT_BUNDLE
- * the first time a load of bundle data will be needed. This may take some time (based on how 
- * many targets and experieces need to be configured). If this method is not called, it will be handled 
- * internally by the SDK the first time it loads (which will make that loading time higher). 
- * */
-public static void initBundleData(Context context);
+```java
+  /**
+   * Init any bundle data (targets and experiences). If the SDK is loaded in TARGET_OBJECT_BUNDLE
+   * the first time a load of bundle data will be needed. This may take some time (based on how 
+   * many targets and experieces need to be configured). If this method is not called, it will be handled 
+   * internally by the SDK the first time it loads (which will make that loading time higher). 
+   * */
+  public static void initBundleData(Context context);
 
-/**
- * Indicates whether the current device supports ARCore
- * */
-public static boolean isARCoreSupported(Activity activity);
+  /**
+   * Indicates whether the current device supports ARCore or not.
+   * */
+  public static void checkARCoreSupported(Activity activity, ARCoreSupportedCallback callback);
 
-/**
- * Indicates whether ARCore app is installed in the current device.
- * */
-public static boolean isARCoreInstalled(Activity activity);
+  /**
+   * If ARCore is supported and not installed in the current device, it will start the installation
+   * flow by asking the user in a series of system provided dialogs.
+   * */
+  public static void handleARCoreInstallIfNeeded(Activity activity, boolean userRequestedInstall, ARCoreAvailabilityCallback callback);
 
-/**
- * If ARCore is supported and not installed in the current device, it will start the installation
- * flow by asking the user in a series of system provided dialogs.
- * */
-public static void checkARCoreAvailability(final Activity activity, final ARCoreAvailabilityCallback callback);
+  /**
+   * Gets the current SDK version.
+   * */
+  public static String getSDKVersion();
+
+  /**
+   * Indicates whether the current device support positional experiences (through ARCore) or not.
+   * */
+  public static boolean deviceSupportsARCore();
 ```
 
 ### CamOnAppActionListener
 
-```Java
-/**
- * A new browser should be opened with the given parameters.
- * */
-void onOpenUrlInBrowser(String plainUrl, boolean inExternalBrowser);
+```java
+  /**
+   * A new browser should be opened with the given parameters.
+   * */
+  void onOpenUrlInBrowser(String plainUrl, boolean inExternalBrowser);
 
-/**
- * A new custom schema should be processed with the given data.
- * */
-void onProcessCustomSchema(String customSchema, String data);
+  /**
+   * A new custom schema should be processed with the given data.
+   * */
+  void onProcessCustomSchema(String customSchema, String data);
 
-/**
- * A Facebook profile should be opened with the given parameters.
- * */
-void onOpenFacebookProfile(String profileId);
+  /**
+   * A Facebook profile should be opened with the given parameters.
+   * */
+  void onOpenFacebookProfile(String profileId);
 
-/**
- * A Twitter profile should be opened with the given parameters.
- * */
-void onOpenTwitterProfile(String profileId);
+  /**
+   * A Twitter profile should be opened with the given parameters.
+   * */
+  void onOpenTwitterProfile(String profileId);
 
-/**
- * An Instagram profile should be opened with the given parameters.
- * */
-void onOpenInstagramProfile(String profileId);
+  /**
+   * An Instagram profile should be opened with the given parameters.
+   * */
+  void onOpenInstagramProfile(String profileId);
 
-/**
- * A phone call has been requested with the given parameters.
- * */
-void onCallPhoneNumber(String phoneNumber);
+  /**
+   * A phone call has been requested with the given parameters.
+   * */
+  void onCallPhoneNumber(String phoneNumber);
 
-/**
- * A SMS should be sent with the given parameters.
- * */
-void onSendSMS(String phoneNumber, String message);
+  /**
+   * A SMS should be sent with the given parameters.
+   * */
+  void onSendSMS(String phoneNumber, String message);
 
-/**
- * A Whatsapp should be sent with the given parameters.
- * */
-void onSendWhatsapp(String phoneNumber, String message);
+  /**
+   * A Whatsapp should be sent with the given parameters.
+   * */
+  void onSendWhatsapp(String phoneNumber, String message);
 
-/**
- * An email should be sent with the given parameters.
- * */
-void onSendEmail(String toAddress, String subject, String body);
+  /**
+   * An email should be sent with the given parameters.
+   * */
+  void onSendEmail(String toAddress, String subject, String body);
 
-/**
- * Adding a new contact to the device contact list has been requested with the given parameters.
- * */
-void onAddContact(String firstName, String lastname, String phoneNumber, String organization, String jobTitle, String email, String twitterProfile, String facebookProfile, String skypeProfile);
+  /**
+   * Adding a new contact to the device contact list has been requested with the given parameters.
+   * */
+  void onAddContact(String firstName, String lastname, String phoneNumber, String organization, String jobTitle, String email, String twitterProfile, String facebookProfile, String skypeProfile);
 
-/**
- * A new Facebook post should be added with the given parameters.
- * */
-void onPostInFacebook(String feedMessage, String feedName, String feedCaption, String feedDescription, String feedImageUrl, String feedLink);
+  /**
+   * A new Facebook post should be added with the given parameters.
+   * */
+  void onPostInFacebook(String feedMessage, String feedName, String feedCaption, String feedDescription, String feedImageUrl, String feedLink);
 
-/**
- * A new Twitter wall message should be added with the given parameters.
- * */
-void onPostInTwitter(String textToShare, String imageUrl);
+  /**
+   * A new Twitter wall message should be added with the given parameters.
+   * */
+  void onPostInTwitter(String textToShare, String imageUrl);
 
-/**
- * A new Facebook like should be added to the user's preferences with the given parameters.
- * */
-void onLikeFacebookPage(String pageId);
+  /**
+   * A new Facebook like should be added to the user's preferences with the given parameters.
+   * */
+  void onLikeFacebookPage(String pageId);
 
-/**
- * A new Twitter follow should be added to the user's preferences with the given parameters.
- * */
-void onTwitterFollow(String userName);
+  /**
+   * A new Twitter follow should be added to the user's preferences with the given parameters.
+   * */
+  void onTwitterFollow(String userName);
 
-/**
- * The device store app should be opened with the given app id.
- * */
-void onOpenAppStore(String googlePlayId, String appStoreId);
+  /**
+   * The device store app should be opened with the given app id.
+   * */
+  void onOpenAppStore(String googlePlayId, String appStoreId);
 
-/**
- * An action needs to be done in file in path
- * */
-void onProcessFile(String path, String action);
+  /**
+   * An action needs to be done in file in path
+   * */
+  void onProcessFile(String path, String action);
 ```
+
+## Libraries included
+
+The following open source libraries are used within the Android SDK:
+
+  * Curl
+  * LibPng
+  * LibZip
+  * Lua
+  * Crimild
+  * JsonCpp
+  * RapidXml
+  * Sol
+  * SQLiteCpp
