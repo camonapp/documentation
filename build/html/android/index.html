@@ -25,9 +25,8 @@
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
         <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
         <script type="text/javascript" src="../_static/copybutton.js"></script>
-        <script type="text/javascript">var copybuttonSkipText = '>>> ';</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -89,9 +88,6 @@
             <a href="../index.html" class="icon icon-home"> 
           
 
-          
-            
-            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -233,11 +229,9 @@
 <div class="section" id="android-studio">
 <h4>Android Studio<a class="headerlink" href="#android-studio" title="Permalink to this headline">¶</a></h4>
 <ul>
-<li><p class="first">Open your existing project (or create a new one)</p>
-</li>
-<li><p class="first">Create the libs folder under app (if needed)</p>
-</li>
-<li><p class="first">Copy the CamOnApp SDK (camonappsdk.aar) to the libs folder</p>
+<li><p>Open your existing project (or create a new one)</p></li>
+<li><p>Create the libs folder under app (if needed)</p></li>
+<li><p>Copy the CamOnApp SDK (camonappsdk.aar) to the libs folder</p>
 <p><img alt="../_images/android_setup_1.png" src="../_images/android_setup_1.png" /></p>
 </li>
 </ul>
@@ -330,12 +324,12 @@
 <h3>Supported Android Devices<a class="headerlink" href="#supported-android-devices" title="Permalink to this headline">¶</a></h3>
 <p>CamOnApp SDK is running on devices fulfilling the following requirements:</p>
 <ul class="simple">
-<li>Android 5.0+ (API Level 21+)</li>
-<li>Compass</li>
-<li>Accelerometer</li>
-<li>Medium resolution devices (mdpi)</li>
-<li>Rear-facing camera</li>
-<li>OpenGL 2.0</li>
+<li><p>Android 5.0+ (API Level 21+)</p></li>
+<li><p>Compass</p></li>
+<li><p>Accelerometer</p></li>
+<li><p>Medium resolution devices (mdpi)</p></li>
+<li><p>Rear-facing camera</p></li>
+<li><p>OpenGL 2.0</p></li>
 </ul>
 </div>
 </div>
@@ -343,38 +337,38 @@
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Once CamOnApp SDK has been configured, its usage is very straightforward. All you have to do is:</p>
 <ul class="simple">
-<li>Extend the desired Activity from CamOnAppActivity</li>
-<li>Override those methods needed to add new/extra functionality (optional)</li>
-<li>Define a new ActionListener for adhoc behaviour (optional)</li>
+<li><p>Extend the desired Activity from CamOnAppActivity</p></li>
+<li><p>Override those methods needed to add new/extra functionality (optional)</p></li>
+<li><p>Define a new ActionListener for adhoc behaviour (optional)</p></li>
 </ul>
 <div class="section" id="extending-from-camonappactivity">
 <h3>Extending from CamOnAppActivity<a class="headerlink" href="#extending-from-camonappactivity" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CameraActivity</span> <span class="kd">extends</span> <span class="n">CamOnAppActivity</span> <span class="o">{</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CameraActivity</span> <span class="kd">extends</span> <span class="n">CamOnAppActivity</span> <span class="p">{</span>
       <span class="nd">@Override</span>
-      <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-          <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+      <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+          <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
 
-          <span class="n">createView</span><span class="o">();</span>
-      <span class="o">}</span>
+          <span class="n">createView</span><span class="p">();</span>
+      <span class="p">}</span>
 
-      <span class="kd">private</span> <span class="kt">void</span> <span class="nf">createView</span><span class="o">()</span> <span class="o">{</span>
+      <span class="kd">private</span> <span class="kt">void</span> <span class="nf">createView</span><span class="p">()</span> <span class="p">{</span>
           <span class="c1">// Root view is defined within CamOnAppActivity</span>
-          <span class="n">ViewGroup</span> <span class="n">parentView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">android</span><span class="o">.</span><span class="na">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">content</span><span class="o">);</span>
+          <span class="n">ViewGroup</span> <span class="n">parentView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">android</span><span class="p">.</span><span class="na">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">content</span><span class="p">);</span>
 
-          <span class="n">RelativeLayout</span> <span class="n">layout</span> <span class="o">=</span> <span class="o">(</span><span class="n">RelativeLayout</span><span class="o">)</span> <span class="n">getLayoutInflater</span><span class="o">().</span><span class="na">inflate</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+          <span class="n">RelativeLayout</span> <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="n">RelativeLayout</span><span class="p">)</span> <span class="n">getLayoutInflater</span><span class="p">().</span><span class="na">inflate</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">layout</span><span class="p">.</span><span class="na">activity_main</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
 
-          <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span> <span class="n">layoutParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">(</span><span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">MATCH_PARENT</span><span class="o">,</span> <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">LayoutParams</span><span class="o">.</span><span class="na">MATCH_PARENT</span><span class="o">);</span>
-          <span class="n">layoutParams</span><span class="o">.</span><span class="na">addRule</span><span class="o">(</span><span class="n">RelativeLayout</span><span class="o">.</span><span class="na">ALIGN_PARENT_TOP</span><span class="o">,</span> <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">TRUE</span><span class="o">);</span>
-          <span class="n">layoutParams</span><span class="o">.</span><span class="na">addRule</span><span class="o">(</span><span class="n">RelativeLayout</span><span class="o">.</span><span class="na">CENTER_HORIZONTAL</span><span class="o">,</span> <span class="n">RelativeLayout</span><span class="o">.</span><span class="na">TRUE</span><span class="o">);</span>
-          <span class="n">layout</span><span class="o">.</span><span class="na">setLayoutParams</span><span class="o">(</span><span class="n">layoutParams</span><span class="o">);</span>
+          <span class="n">RelativeLayout</span><span class="p">.</span><span class="na">LayoutParams</span> <span class="n">layoutParams</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RelativeLayout</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">(</span><span class="n">RelativeLayout</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">.</span><span class="na">MATCH_PARENT</span><span class="p">,</span> <span class="n">RelativeLayout</span><span class="p">.</span><span class="na">LayoutParams</span><span class="p">.</span><span class="na">MATCH_PARENT</span><span class="p">);</span>
+          <span class="n">layoutParams</span><span class="p">.</span><span class="na">addRule</span><span class="p">(</span><span class="n">RelativeLayout</span><span class="p">.</span><span class="na">ALIGN_PARENT_TOP</span><span class="p">,</span> <span class="n">RelativeLayout</span><span class="p">.</span><span class="na">TRUE</span><span class="p">);</span>
+          <span class="n">layoutParams</span><span class="p">.</span><span class="na">addRule</span><span class="p">(</span><span class="n">RelativeLayout</span><span class="p">.</span><span class="na">CENTER_HORIZONTAL</span><span class="p">,</span> <span class="n">RelativeLayout</span><span class="p">.</span><span class="na">TRUE</span><span class="p">);</span>
+          <span class="n">layout</span><span class="p">.</span><span class="na">setLayoutParams</span><span class="p">(</span><span class="n">layoutParams</span><span class="p">);</span>
 
           <span class="c1">// Your root view needs to be added to CamOnApp&#39;s root view</span>
-          <span class="n">parentView</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">layout</span><span class="o">);</span>
+          <span class="n">parentView</span><span class="p">.</span><span class="na">addView</span><span class="p">(</span><span class="n">layout</span><span class="p">);</span>
 
           <span class="c1">// Now you can use the view hierarchy as usual</span>
-          <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">your_view_id</span><span class="o">);</span>
-      <span class="o">}</span>
-  <span class="o">}</span>
+          <span class="n">View</span> <span class="n">view</span> <span class="o">=</span> <span class="n">findViewById</span><span class="p">(</span><span class="n">R</span><span class="p">.</span><span class="na">id</span><span class="p">.</span><span class="na">your_view_id</span><span class="p">);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -383,24 +377,24 @@
 <p>CamOnAppActivity methods are fully described in the API Section. No method needs to be overriden. Everything will work as expected with the minimum configuration described above.</p>
 <p>Some of the features that could extended/listened to are:</p>
 <ul class="simple">
-<li>Experience Detected</li>
-<li>Experience Started</li>
-<li>Etc…</li>
+<li><p>Experience Detected</p></li>
+<li><p>Experience Started</p></li>
+<li><p>Etc…</p></li>
 </ul>
 </div>
 <div class="section" id="defining-a-custom-actionlistener">
 <h3>Defining a custom ActionListener<a class="headerlink" href="#defining-a-custom-actionlistener" title="Permalink to this headline">¶</a></h3>
 <p>CamOnApp SDK provides a default action listener (named CamOnAppDefaultActionListener), which provides all the functionality needed for almost every experience callback. As the default action listener implements the CamOnAppActionListener interface, there are two options:</p>
 <ul class="simple">
-<li>Create a new class that implements the CamOnAppActionListener interface (and implement every method from scratch according to the needs)</li>
-<li>Create a new class extending CamOnAppDefaultActionListener. This way, only desired methods will have to be overriden</li>
+<li><p>Create a new class that implements the CamOnAppActionListener interface (and implement every method from scratch according to the needs)</p></li>
+<li><p>Create a new class extending CamOnAppDefaultActionListener. This way, only desired methods will have to be overriden</p></li>
 </ul>
 <p>CamOnAppDefaultActionListener does NOT implement the following methods (they will always have to be implemented):</p>
 <ul class="simple">
-<li>onPostInFacebook</li>
-<li>onLikeFacebookPage</li>
-<li>onPostInTwitter</li>
-<li>onTwitterFollow</li>
+<li><p>onPostInFacebook</p></li>
+<li><p>onLikeFacebookPage</p></li>
+<li><p>onPostInTwitter</p></li>
+<li><p>onTwitterFollow</p></li>
 </ul>
 <p>Once the custom action listener was created (and configured) it will have to be attached to the activity by calling setActionListener.</p>
 </div>
@@ -408,8 +402,8 @@
 <h3>Customizing default images<a class="headerlink" href="#customizing-default-images" title="Permalink to this headline">¶</a></h3>
 <p>There are two instances where default images can be overwritten, in order to provide a better user experience with the app’s branding in it:</p>
 <ul class="simple">
-<li>res/drawable-hdpi/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience</li>
-<li>res/drawable-hdpi/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded</li>
+<li><p>res/drawable-hdpi/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience</p></li>
+<li><p>res/drawable-hdpi/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded</p></li>
 </ul>
 </div>
 <div class="section" id="a-note-about-devices-running-android-6-0">
@@ -422,21 +416,21 @@
 <h2>Experience Lifecycle<a class="headerlink" href="#experience-lifecycle" title="Permalink to this headline">¶</a></h2>
 <p>The SDK can be initialized in 4 different modes:</p>
 <ul class="simple">
-<li>Targetless: scanner and target detection are disabled. There only way to start a experience is by id (with startExperienceWithId(ID)).</li>
-<li>TargetObject: scanner and target detection are enabled. Experiences can be either started by target detection or by id.</li>
-<li>TargetObjectBundle: same as TargetOnject, but in bundle mode. In this mode, no internet connection is required (experiences and target need to be within the assets folder).</li>
-<li>TargetFace: similar to TargetObject, where the only possible target is a human face.</li>
+<li><p>Targetless: scanner and target detection are disabled. There only way to start a experience is by id (with startExperienceWithId(ID)).</p></li>
+<li><p>TargetObject: scanner and target detection are enabled. Experiences can be either started by target detection or by id.</p></li>
+<li><p>TargetObjectBundle: same as TargetOnject, but in bundle mode. In this mode, no internet connection is required (experiences and target need to be within the assets folder).</p></li>
+<li><p>TargetFace: similar to TargetObject, where the only possible target is a human face.</p></li>
 </ul>
 <p>Once initialized, there are two ways of starting a new experience:</p>
 <ul class="simple">
-<li>By target detection (image, cylinder, object)</li>
-<li>By experience-id (manually)</li>
+<li><p>By target detection (image, cylinder, object)</p></li>
+<li><p>By experience-id (manually)</p></li>
 </ul>
 <p>In both cases, the lifecycle triggered by the SDK will be the following (in order):</p>
 <ul class="simple">
-<li>onExperienceDetected: experience has been detected and loading process has been started</li>
-<li>onExperienceStarted: experience load has finished and it has been shown to the user</li>
-<li>onExperienceStopped: experience has been unloaded and is no longer visible to the user</li>
+<li><p>onExperienceDetected: experience has been detected and loading process has been started</p></li>
+<li><p>onExperienceStarted: experience load has finished and it has been shown to the user</p></li>
+<li><p>onExperienceStopped: experience has been unloaded and is no longer visible to the user</p></li>
 </ul>
 </div>
 <div class="section" id="bundle-mode">
@@ -444,20 +438,18 @@
 <p>Bundle Mode should be used when no internet connection is needed. In this case, the target detection and the experience contents live within the app (in the assets folder).</p>
 <p>The setup for bundle mode require the following steps:</p>
 <ul>
-<li><p class="first">Add a file named offline.zip (provided by the CamOnApp team) within assets/to_copy folder of your app</p>
+<li><p>Add a file named offline.zip (provided by the CamOnApp team) within assets/to_copy folder of your app</p>
 <p><img alt="../_images/android_bundle.png" src="../_images/android_bundle.png" /></p>
 </li>
-<li><p class="first">Initialize the bundle data (optional, first run only). Unzipping and preparing the data to be ready to use by the SDK can take some time (depending on the size of offline.zip itself). That’s why there’s a method for this called CamOnAppUtils.initBundleData(context). We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p>
-</li>
-<li><p class="first">Configure the SDK target mode as CamOnAppTargetMode.TARGET_OBJECT_BUNDLE:</p>
-</li>
+<li><p>Initialize the bundle data (optional, first run only). Unzipping and preparing the data to be ready to use by the SDK can take some time (depending on the size of offline.zip itself). That’s why there’s a method for this called CamOnAppUtils.initBundleData(context). We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p></li>
+<li><p>Configure the SDK target mode as CamOnAppTargetMode.TARGET_OBJECT_BUNDLE:</p></li>
 </ul>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>  <span class="nd">@Override</span>
-  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-  	<span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="p">)</span> <span class="p">{</span>
+  	<span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">);</span>
 
-  	<span class="n">setTargetMode</span><span class="o">(</span><span class="n">CamOnAppTargetMode</span><span class="o">.</span><span class="na">TARGET_OBJECT_BUNDLE</span><span class="o">);</span>
-  <span class="o">}</span>
+  	<span class="n">setTargetMode</span><span class="p">(</span><span class="n">CamOnAppTargetMode</span><span class="p">.</span><span class="na">TARGET_OBJECT_BUNDLE</span><span class="p">);</span>
+  <span class="p">}</span>
 </pre></div>
 </div>
 <p>From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.</p>
@@ -474,9 +466,9 @@
 <p>For this purpose, CamOnApp’s SDK provides an default UI indicating when is a good moment to place an experience (meaning, the user has a ground plane in front of him). If you need to disable this UI in order to provide yours, all you have to do is call disableGroundPlaneHint().</p>
 <p>When a positional experience has started, the SDK will trigger the following callbacks:</p>
 <ul class="simple">
-<li>onGroundPlaneFound: there’s a ground plane in front of the user. He could tap the screen in order to place the experience.</li>
-<li>onGroundPlaneLost: the ground plane has been lost. The user will have to find a new one.</li>
-<li>onAnchorPointCreated: the user has successfuly placed the experience in a ground plane.</li>
+<li><p>onGroundPlaneFound: there’s a ground plane in front of the user. He could tap the screen in order to place the experience.</p></li>
+<li><p>onGroundPlaneLost: the ground plane has been lost. The user will have to find a new one.</p></li>
+<li><p>onAnchorPointCreated: the user has successfuly placed the experience in a ground plane.</p></li>
 </ul>
 </div>
 <div class="section" id="enabling-arcore">
@@ -485,7 +477,7 @@
 <p>ARCore runs in a limited number of devices for the moment (here the list).</p>
 <p>In order to boost the user experience and enable ARCore, the following steps need to be done:</p>
 <ul class="simple">
-<li>Add the ARCore dependency to your app’s Gradle file:</li>
+<li><p>Add the ARCore dependency to your app’s Gradle file:</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">dependencies</span> <span class="p">{</span>
      <span class="n">implementation</span> <span class="s1">&#39;com.google.ar:core:1.14.0&#39;</span>
@@ -494,7 +486,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li>Check if the device supports ARCore and it’s not installed (see Android’s sample app as reference)</li>
+<li><p>Check if the device supports ARCore and it’s not installed (see Android’s sample app as reference)</p></li>
 </ul>
 </div>
 </div>
@@ -506,54 +498,54 @@
 <span class="cm">   * SDK has finished loading, and the camera is now visible. From this moment on, it&#39;s safe to</span>
 <span class="cm">   * call any SDK method.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCameraPresented</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCameraPresented</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicated whether the SDK has been initialized or not.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">cameraInitialized</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">cameraInitialized</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A new ActionDelegate will be configured for every callback possible within an experience.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setActionListener</span><span class="o">(</span><span class="n">CamOnAppActionListener</span> <span class="n">actionListener</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setActionListener</span><span class="p">(</span><span class="n">CamOnAppActionListener</span> <span class="n">actionListener</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Overrides current TargetMode. Default TargetMode is CamOnAppTargetMode.TARGET_OBJECT.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTargetMode</span><span class="o">(</span><span class="kt">int</span> <span class="n">mode</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setTargetMode</span><span class="p">(</span><span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Gets current TargetMode. Possible values defined within CamOnAppTargetMode.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getTargetMode</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getTargetMode</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * By enabling scanning mode, the SDK will be able to detect targets. Scanning mode is disabled by default.</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enableScanningMode</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enableScanningMode</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Disables scanning mode preventing any target to be detected. This is the default behaviour.</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disableScanningMode</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disableScanningMode</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * When scanning mode is enabled, the SDK will try to find known targets for 12 seconds.</span>
 <span class="cm">   * If no target has been found during that time, this callback will be triggered, scanning mode</span>
 <span class="cm">   * will be disabled and it will need to be enabled again (if needed) by calling enableScanningMode().</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTargetDetectionTimeoutReached</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTargetDetectionTimeoutReached</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Callback called when scanning mode has been disabled.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScanningModeDisabled</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScanningModeDisabled</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Callback called when scanning mode has been enabled.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScanningModeEnabled</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScanningModeEnabled</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A new experience has been detected and a download has been triggered for its contents.</span>
@@ -561,106 +553,106 @@
 <span class="cm">   * experience has been detected.</span>
 <span class="cm">   * @param experienceId Detected experience id</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceDetected</span><span class="o">(</span><span class="n">String</span> <span class="n">experienceId</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceDetected</span><span class="p">(</span><span class="n">String</span> <span class="n">experienceId</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * The detected experience is now running and is being shown to the user.</span>
 <span class="cm">   * @param info Information about running experience</span>
 <span class="cm">   * @param insideView Indicated whether the experience is running inside the target (or not)</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceStarted</span><span class="o">(</span><span class="n">COAExperienceInfo</span> <span class="n">info</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">insideView</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceStarted</span><span class="p">(</span><span class="n">COAExperienceInfo</span> <span class="n">info</span><span class="p">,</span> <span class="kt">boolean</span> <span class="n">insideView</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * The execution of the experience has ended. The Activity is</span>
 <span class="cm">   * now ready to detect (and execute) a new experience.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceStopped</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceStopped</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * The camera has lost (or gained) focus over the target. This method is called</span>
 <span class="cm">   * every time the focus changes.</span>
 <span class="cm">   * @param inView The experience&#39;s target is within the camera view</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceSourceChanged</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">inView</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onExperienceSourceChanged</span><span class="p">(</span><span class="kt">boolean</span> <span class="n">inView</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Starts an experience matching the provided Id.</span>
 <span class="cm">   * @param experienceId</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">startExperienceWithId</span><span class="o">(</span><span class="n">String</span> <span class="n">experienceId</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">startExperienceWithId</span><span class="p">(</span><span class="n">String</span> <span class="n">experienceId</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicates whether an experience is currently running or not.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">anyExperienceRunning</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">anyExperienceRunning</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicates if there&#39;s any experiencie detected, even if it&#39;s not yet started.</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">anyExperienceDetected</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">anyExperienceDetected</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Informs whether any trackable exists at this time.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">anyCurrentTrackable</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">anyCurrentTrackable</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Removes the current experience (if any).</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeCurrentExperience</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeCurrentExperience</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Removes the current experience (if any) and leaves scanning mode (avoids a new target detection).</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeCurrentExperienceAndLeaveScanningMode</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">removeCurrentExperienceAndLeaveScanningMode</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Switches the camera from back to front (or otherwise).</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">switchCamera</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">switchCamera</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * When scanning mode is enabled, a scan overlay will be shown by default as a UI helper</span>
 <span class="cm">   * indicating that a scanning is in progress. This method enables/disables that UI.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setShowScanOverlay</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">show</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setShowScanOverlay</span><span class="p">(</span><span class="kt">boolean</span> <span class="n">show</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * When a experience is loading, a loading image will be shown together with a progress indicator.</span>
 <span class="cm">   * This method enables/disables that loading UI.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setShowLoadingScene</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">show</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setShowLoadingScene</span><span class="p">(</span><span class="kt">boolean</span> <span class="n">show</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Informs that the last kwnown trackable has been lost.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTrackableLost</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTrackableLost</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Informs that a trackable (of any type) has been found.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTrackableFound</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onTrackableFound</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * By default, CamOnApp SDK shows a default UI hint for positional experiences.</span>
 <span class="cm">   * This method disables it, in order to provide a custom UI (if needed).</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disableGroundPlaneHint</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disableGroundPlaneHint</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A ground plane has been lost. It&#39;s needed in order to place experiences in the ground.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGroundPlaneLost</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGroundPlaneLost</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A ground plane has been found: now the experience can be placed.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGroundPlaneFound</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onGroundPlaneFound</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * An anchor point has been created: now the experience has been placed successfuly.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnchorPointCreated</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAnchorPointCreated</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Requests a new screenshot to be made to what the user is experimenting.</span>
@@ -668,86 +660,86 @@
 <span class="cm">   * As this is an asynchronous process, the callback onScreenshotReady will have to be</span>
 <span class="cm">   * implemented as well.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">requestScreenshot</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">requestScreenshot</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Called when the screenshot is ready.</span>
 <span class="cm">   * @param screenshot The resulting screenshot as a bitmap</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScreenshotReady</span><span class="o">(</span><span class="n">Bitmap</span> <span class="n">screenshot</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onScreenshotReady</span><span class="p">(</span><span class="n">Bitmap</span> <span class="n">screenshot</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Starts a video session recording. Once completed, stopVideoRecording needs to be called.</span>
 <span class="cm">   * @param listener A callback for each possible status during the recording lifecycle:</span>
 <span class="cm">   *                 recordingStarted, recordingStopped, recordingProcessing, recordingFailed</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startVideoRecording</span><span class="o">(</span><span class="n">MediaRecorder</span><span class="o">.</span><span class="na">MediaRecorderListener</span> <span class="n">listener</span><span class="o">,</span> <span class="kt">float</span> <span class="n">scale</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">startVideoRecording</span><span class="p">(</span><span class="n">MediaRecorder</span><span class="p">.</span><span class="na">MediaRecorderListener</span> <span class="n">listener</span><span class="p">,</span> <span class="kt">float</span> <span class="n">scale</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Stops the video recording session.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stopVideoRecording</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">stopVideoRecording</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicates whether there&#39;s a recording session in progress or not.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isVideoRecording</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isVideoRecording</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicates if geolocation experiences are enabled or not</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isGeolocationEnabled</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isGeolocationEnabled</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * If enabled, experiences will be shown based on user&#39;s geolocation</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setGeolocationEnabled</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">enabled</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setGeolocationEnabled</span><span class="p">(</span><span class="kt">boolean</span> <span class="n">enabled</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicates if internet connection is available (or not).</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isInternetAvailable</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isInternetAvailable</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Invoked when internet connection is lost.</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInternetNotReachable</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInternetNotReachable</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Invoked when internet connection has been recovered.</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInternetReachable</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onInternetReachable</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Enable/Disable device&#39;s flash torch (if available).</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFlashTorchMode</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">on</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFlashTorchMode</span><span class="p">(</span><span class="kt">boolean</span> <span class="n">on</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Invoked when an error occurs and needs to be handled by the application.</span>
 <span class="cm">   */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="o">(</span><span class="n">COAError</span> <span class="n">error</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onError</span><span class="p">(</span><span class="n">COAError</span> <span class="n">error</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Adds custom information to setup the experience (to be used by the scripts inside the experience)s</span>
 <span class="cm">  * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setInitialGlobalExperienceData</span><span class="o">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setInitialGlobalExperienceData</span><span class="p">(</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">data</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Handles custom events emitted by experience&#39;s scrips.</span>
 <span class="cm">  * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCustomEventEmitted</span><span class="o">(</span><span class="n">String</span> <span class="n">eventName</span><span class="o">,</span> <span class="n">String</span> <span class="n">eventInfo</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCustomEventEmitted</span><span class="p">(</span><span class="n">String</span> <span class="n">eventName</span><span class="p">,</span> <span class="n">String</span> <span class="n">eventInfo</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Forces SDK deinitialization. Useful for avoiding Android Activity lifecyle &quot;normal&quot; order</span>
 <span class="cm">   * between new Activities and old ones.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deinitSDK</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">deinitSDK</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">    * SDK has been deinitialized correctly.</span>
 <span class="cm">  * */</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSDKDeinited</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onSDKDeinited</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -775,28 +767,28 @@
 <span class="cm">   * many targets and experieces need to be configured). If this method is not called, it will be handled </span>
 <span class="cm">   * internally by the SDK the first time it loads (which will make that loading time higher). </span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">initBundleData</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">initBundleData</span><span class="p">(</span><span class="n">Context</span> <span class="n">context</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicates whether the current device supports ARCore or not.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">checkARCoreSupported</span><span class="o">(</span><span class="n">Activity</span> <span class="n">activity</span><span class="o">,</span> <span class="n">ARCoreSupportedCallback</span> <span class="n">callback</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">checkARCoreSupported</span><span class="p">(</span><span class="n">Activity</span> <span class="n">activity</span><span class="p">,</span> <span class="n">ARCoreSupportedCallback</span> <span class="n">callback</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * If ARCore is supported and not installed in the current device, it will start the installation</span>
 <span class="cm">   * flow by asking the user in a series of system provided dialogs.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">handleARCoreInstallIfNeeded</span><span class="o">(</span><span class="n">Activity</span> <span class="n">activity</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">userRequestedInstall</span><span class="o">,</span> <span class="n">ARCoreAvailabilityCallback</span> <span class="n">callback</span><span class="o">);</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">handleARCoreInstallIfNeeded</span><span class="p">(</span><span class="n">Activity</span> <span class="n">activity</span><span class="p">,</span> <span class="kt">boolean</span> <span class="n">userRequestedInstall</span><span class="p">,</span> <span class="n">ARCoreAvailabilityCallback</span> <span class="n">callback</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Gets the current SDK version.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getSDKVersion</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getSDKVersion</span><span class="p">();</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Indicates whether the current device support positional experiences (through ARCore) or not.</span>
 <span class="cm">   * */</span>
-  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">deviceSupportsARCore</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="nf">deviceSupportsARCore</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -805,82 +797,82 @@
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span>  <span class="cm">/**</span>
 <span class="cm">   * A new browser should be opened with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onOpenUrlInBrowser</span><span class="o">(</span><span class="n">String</span> <span class="n">plainUrl</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">inExternalBrowser</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onOpenUrlInBrowser</span><span class="p">(</span><span class="n">String</span> <span class="n">plainUrl</span><span class="p">,</span> <span class="kt">boolean</span> <span class="n">inExternalBrowser</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A new custom schema should be processed with the given data.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onProcessCustomSchema</span><span class="o">(</span><span class="n">String</span> <span class="n">customSchema</span><span class="o">,</span> <span class="n">String</span> <span class="n">data</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onProcessCustomSchema</span><span class="p">(</span><span class="n">String</span> <span class="n">customSchema</span><span class="p">,</span> <span class="n">String</span> <span class="n">data</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A Facebook profile should be opened with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onOpenFacebookProfile</span><span class="o">(</span><span class="n">String</span> <span class="n">profileId</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onOpenFacebookProfile</span><span class="p">(</span><span class="n">String</span> <span class="n">profileId</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A Twitter profile should be opened with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onOpenTwitterProfile</span><span class="o">(</span><span class="n">String</span> <span class="n">profileId</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onOpenTwitterProfile</span><span class="p">(</span><span class="n">String</span> <span class="n">profileId</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * An Instagram profile should be opened with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onOpenInstagramProfile</span><span class="o">(</span><span class="n">String</span> <span class="n">profileId</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onOpenInstagramProfile</span><span class="p">(</span><span class="n">String</span> <span class="n">profileId</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A phone call has been requested with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onCallPhoneNumber</span><span class="o">(</span><span class="n">String</span> <span class="n">phoneNumber</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onCallPhoneNumber</span><span class="p">(</span><span class="n">String</span> <span class="n">phoneNumber</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A SMS should be sent with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onSendSMS</span><span class="o">(</span><span class="n">String</span> <span class="n">phoneNumber</span><span class="o">,</span> <span class="n">String</span> <span class="n">message</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onSendSMS</span><span class="p">(</span><span class="n">String</span> <span class="n">phoneNumber</span><span class="p">,</span> <span class="n">String</span> <span class="n">message</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A Whatsapp should be sent with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onSendWhatsapp</span><span class="o">(</span><span class="n">String</span> <span class="n">phoneNumber</span><span class="o">,</span> <span class="n">String</span> <span class="n">message</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onSendWhatsapp</span><span class="p">(</span><span class="n">String</span> <span class="n">phoneNumber</span><span class="p">,</span> <span class="n">String</span> <span class="n">message</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * An email should be sent with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onSendEmail</span><span class="o">(</span><span class="n">String</span> <span class="n">toAddress</span><span class="o">,</span> <span class="n">String</span> <span class="n">subject</span><span class="o">,</span> <span class="n">String</span> <span class="n">body</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onSendEmail</span><span class="p">(</span><span class="n">String</span> <span class="n">toAddress</span><span class="p">,</span> <span class="n">String</span> <span class="n">subject</span><span class="p">,</span> <span class="n">String</span> <span class="n">body</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * Adding a new contact to the device contact list has been requested with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onAddContact</span><span class="o">(</span><span class="n">String</span> <span class="n">firstName</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastname</span><span class="o">,</span> <span class="n">String</span> <span class="n">phoneNumber</span><span class="o">,</span> <span class="n">String</span> <span class="n">organization</span><span class="o">,</span> <span class="n">String</span> <span class="n">jobTitle</span><span class="o">,</span> <span class="n">String</span> <span class="n">email</span><span class="o">,</span> <span class="n">String</span> <span class="n">twitterProfile</span><span class="o">,</span> <span class="n">String</span> <span class="n">facebookProfile</span><span class="o">,</span> <span class="n">String</span> <span class="n">skypeProfile</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onAddContact</span><span class="p">(</span><span class="n">String</span> <span class="n">firstName</span><span class="p">,</span> <span class="n">String</span> <span class="n">lastname</span><span class="p">,</span> <span class="n">String</span> <span class="n">phoneNumber</span><span class="p">,</span> <span class="n">String</span> <span class="n">organization</span><span class="p">,</span> <span class="n">String</span> <span class="n">jobTitle</span><span class="p">,</span> <span class="n">String</span> <span class="n">email</span><span class="p">,</span> <span class="n">String</span> <span class="n">twitterProfile</span><span class="p">,</span> <span class="n">String</span> <span class="n">facebookProfile</span><span class="p">,</span> <span class="n">String</span> <span class="n">skypeProfile</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A new Facebook post should be added with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onPostInFacebook</span><span class="o">(</span><span class="n">String</span> <span class="n">feedMessage</span><span class="o">,</span> <span class="n">String</span> <span class="n">feedName</span><span class="o">,</span> <span class="n">String</span> <span class="n">feedCaption</span><span class="o">,</span> <span class="n">String</span> <span class="n">feedDescription</span><span class="o">,</span> <span class="n">String</span> <span class="n">feedImageUrl</span><span class="o">,</span> <span class="n">String</span> <span class="n">feedLink</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onPostInFacebook</span><span class="p">(</span><span class="n">String</span> <span class="n">feedMessage</span><span class="p">,</span> <span class="n">String</span> <span class="n">feedName</span><span class="p">,</span> <span class="n">String</span> <span class="n">feedCaption</span><span class="p">,</span> <span class="n">String</span> <span class="n">feedDescription</span><span class="p">,</span> <span class="n">String</span> <span class="n">feedImageUrl</span><span class="p">,</span> <span class="n">String</span> <span class="n">feedLink</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A new Twitter wall message should be added with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onPostInTwitter</span><span class="o">(</span><span class="n">String</span> <span class="n">textToShare</span><span class="o">,</span> <span class="n">String</span> <span class="n">imageUrl</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onPostInTwitter</span><span class="p">(</span><span class="n">String</span> <span class="n">textToShare</span><span class="p">,</span> <span class="n">String</span> <span class="n">imageUrl</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A new Facebook like should be added to the user&#39;s preferences with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onLikeFacebookPage</span><span class="o">(</span><span class="n">String</span> <span class="n">pageId</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onLikeFacebookPage</span><span class="p">(</span><span class="n">String</span> <span class="n">pageId</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * A new Twitter follow should be added to the user&#39;s preferences with the given parameters.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onTwitterFollow</span><span class="o">(</span><span class="n">String</span> <span class="n">userName</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onTwitterFollow</span><span class="p">(</span><span class="n">String</span> <span class="n">userName</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * The device store app should be opened with the given app id.</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onOpenAppStore</span><span class="o">(</span><span class="n">String</span> <span class="n">googlePlayId</span><span class="o">,</span> <span class="n">String</span> <span class="n">appStoreId</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onOpenAppStore</span><span class="p">(</span><span class="n">String</span> <span class="n">googlePlayId</span><span class="p">,</span> <span class="n">String</span> <span class="n">appStoreId</span><span class="p">);</span>
 
   <span class="cm">/**</span>
 <span class="cm">   * An action needs to be done in file in path</span>
 <span class="cm">   * */</span>
-  <span class="kt">void</span> <span class="nf">onProcessFile</span><span class="o">(</span><span class="n">String</span> <span class="n">path</span><span class="o">,</span> <span class="n">String</span> <span class="n">action</span><span class="o">);</span>
+  <span class="kt">void</span> <span class="nf">onProcessFile</span><span class="p">(</span><span class="n">String</span> <span class="n">path</span><span class="p">,</span> <span class="n">String</span> <span class="n">action</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -889,15 +881,15 @@
 <h2>Libraries included<a class="headerlink" href="#libraries-included" title="Permalink to this headline">¶</a></h2>
 <p>The following open source libraries are used within the Android SDK:</p>
 <ul class="simple">
-<li>Curl</li>
-<li>LibPng</li>
-<li>LibZip</li>
-<li>Lua</li>
-<li>Crimild</li>
-<li>JsonCpp</li>
-<li>RapidXml</li>
-<li>Sol</li>
-<li>SQLiteCpp</li>
+<li><p>Curl</p></li>
+<li><p>LibPng</p></li>
+<li><p>LibZip</p></li>
+<li><p>Lua</p></li>
+<li><p>Crimild</p></li>
+<li><p>JsonCpp</p></li>
+<li><p>RapidXml</p></li>
+<li><p>Sol</p></li>
+<li><p>SQLiteCpp</p></li>
 </ul>
 </div>
 </div>

@@ -25,9 +25,8 @@
         <script type="text/javascript" src="../_static/underscore.js"></script>
         <script type="text/javascript" src="../_static/doctools.js"></script>
         <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
         <script type="text/javascript" src="../_static/copybutton.js"></script>
-        <script type="text/javascript">var copybuttonSkipText = '>>> ';</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -88,9 +87,6 @@
             <a href="../index.html" class="icon icon-home"> 
           
 
-          
-            
-            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -247,7 +243,7 @@
 <h4>4. Configure Build settings<a class="headerlink" href="#configure-build-settings" title="Permalink to this headline">¶</a></h4>
 <p>CamOnApp SDK requires the following configuration within Target’s Build Settings:</p>
 <ul class="simple">
-<li>Build Options: Enable Bitcode: No</li>
+<li><p>Build Options: Enable Bitcode: No</p></li>
 </ul>
 </div>
 <div class="section" id="general-settings">
@@ -263,11 +259,12 @@
 <h4>7. License key setup<a class="headerlink" href="#license-key-setup" title="Permalink to this headline">¶</a></h4>
 <p>You need to have a valid license from CamOnApp in order to complete the setup process. Once obtained, you should edit your app’s Info.plist configuration file:</p>
 <ul class="simple">
-<li>Add a new key named “CamOnApp” inside “Information Property List”. The type needs to be “Dictionary”</li>
-<li>Add the following child keys to it<ul>
-<li>LicenseCloudDb of type “String”</li>
-<li>LicenseSecretKey of type “String”</li>
-<li>LicenseUserKey of type “String”</li>
+<li><p>Add a new key named “CamOnApp” inside “Information Property List”. The type needs to be “Dictionary”</p></li>
+<li><p>Add the following child keys to it</p>
+<ul>
+<li><p>LicenseCloudDb of type “String”</p></li>
+<li><p>LicenseSecretKey of type “String”</p></li>
+<li><p>LicenseUserKey of type “String”</p></li>
 </ul>
 </li>
 </ul>
@@ -276,10 +273,10 @@
 <h4>8. Extra changes to Info.plist<a class="headerlink" href="#extra-changes-to-info-plist" title="Permalink to this headline">¶</a></h4>
 <p>One more update needs to be done to the Info.plist file:</p>
 <ul class="simple">
-<li>Add a new key named “App Transport Security Settings” inside “Information Property List”. The type needs to be “Dictionary”</li>
-<li>Add a child key to it named “Allow Arbitrary Loads” of type “Boolean” and set it to “YES”</li>
-<li>Add a new key named “NSCameraUsageDescription” inside “Information Propertly List”. Set the type as string and provide a reason for using the camera in the application such as “CamOnApp requires the use of the phone’s camera”
-You should see something like this now:</li>
+<li><p>Add a new key named “App Transport Security Settings” inside “Information Property List”. The type needs to be “Dictionary”</p></li>
+<li><p>Add a child key to it named “Allow Arbitrary Loads” of type “Boolean” and set it to “YES”</p></li>
+<li><p>Add a new key named “NSCameraUsageDescription” inside “Information Propertly List”. Set the type as string and provide a reason for using the camera in the application such as “CamOnApp requires the use of the phone’s camera”
+You should see something like this now:</p></li>
 </ul>
 <p><img alt="../_images/ios_setup_3.png" src="../_images/ios_setup_3.png" /></p>
 </div>
@@ -287,10 +284,10 @@ You should see something like this now:</li>
 <h4>Supported iOS Devices<a class="headerlink" href="#supported-ios-devices" title="Permalink to this headline">¶</a></h4>
 <p>CamOnApp SDK is running on devices fulfilling the following requirements:</p>
 <ul class="simple">
-<li>iOS 9.0+</li>
-<li>iPhone / iPad device family</li>
-<li>Retina / Non-Retina devices</li>
-<li>Devices with a capable CPU (arm64)</li>
+<li><p>iOS 9.0+</p></li>
+<li><p>iPhone / iPad device family</p></li>
+<li><p>Retina / Non-Retina devices</p></li>
+<li><p>Devices with a capable CPU (arm64)</p></li>
 </ul>
 </div>
 </div>
@@ -299,9 +296,9 @@ You should see something like this now:</li>
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
 <p>Once configured, the CamOnApp SDK usage is very straightforward:</p>
 <ul class="simple">
-<li>Extend the desired ViewController from COAViewController</li>
-<li>Override those methods needed to add new/extra functionality (optional)</li>
-<li>Define a new ActionDelegate and attach it to the ViewController extending COAViewController (optional)</li>
+<li><p>Extend the desired ViewController from COAViewController</p></li>
+<li><p>Override those methods needed to add new/extra functionality (optional)</p></li>
+<li><p>Define a new ActionDelegate and attach it to the ViewController extending COAViewController (optional)</p></li>
 </ul>
 <div class="section" id="extending-from-coaviewcontroller">
 <h3>Extending from COAViewController<a class="headerlink" href="#extending-from-coaviewcontroller" title="Permalink to this headline">¶</a></h3>
@@ -317,24 +314,24 @@ You should see something like this now:</li>
 <p>COAViewController interface is fully described in the API Section. No method needs to be overriden. Everything will work as expected with the minimum configuration described above.</p>
 <p>Some of the features that could be extended/listened to are:</p>
 <ul class="simple">
-<li>Experience Detected</li>
-<li>Experience Started</li>
-<li>Etc…</li>
+<li><p>Experience Detected</p></li>
+<li><p>Experience Started</p></li>
+<li><p>Etc…</p></li>
 </ul>
 </div>
 <div class="section" id="defining-a-custom-actiondelegate">
 <h3>Defining a custom ActionDelegate<a class="headerlink" href="#defining-a-custom-actiondelegate" title="Permalink to this headline">¶</a></h3>
 <p>CamOnApp SDK provides a default action delegate (named COADefaultActionDelegate), which provides all the functionality needed for almost every experience callback. As the default action listener implements the COAActionDelegate protocol, there are two options:</p>
 <ul class="simple">
-<li>Create a new class that implements the COAActionDelegate protocol (and implement every method from scratch according to the needs)</li>
-<li>Create a new class extending COADefaultActionDelegate. This way, only desired methods will have to be overriden.</li>
+<li><p>Create a new class that implements the COAActionDelegate protocol (and implement every method from scratch according to the needs)</p></li>
+<li><p>Create a new class extending COADefaultActionDelegate. This way, only desired methods will have to be overriden.</p></li>
 </ul>
 <p>COADefaultActionDelegate does NOT implement the following methods (they will always have to be implemented):</p>
 <ul class="simple">
-<li>postInFacebook</li>
-<li>likeFacebookPage</li>
-<li>postInTwitter</li>
-<li>followTwitterUser</li>
+<li><p>postInFacebook</p></li>
+<li><p>likeFacebookPage</p></li>
+<li><p>postInTwitter</p></li>
+<li><p>followTwitterUser</p></li>
 </ul>
 <p>Once the custom action listener was created (and configured) it will have to be attached to the View Controller:</p>
 <div class="highlight-ObjectiveC notranslate"><div class="highlight"><pre><span></span>  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">viewDidLoad</span> <span class="p">{</span>
@@ -350,8 +347,8 @@ You should see something like this now:</li>
 <h3>Customizing default images<a class="headerlink" href="#customizing-default-images" title="Permalink to this headline">¶</a></h3>
 <p>There are two instances where default images can be overwritten, in order to provide a better user experience with the app’s branding in it:</p>
 <ul class="simple">
-<li>Assets/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience</li>
-<li>Assets/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded</li>
+<li><p>Assets/ground_plane_tile.png: a 512 x 512 PNG (transparent). This one will be shown once a plane has been detected, prior to showing the experience</p></li>
+<li><p>Assets/loading_logo.png: a 500 x 500 PNG (transparent). This one will be shown once an image/object target has been detected and the experience is being loaded</p></li>
 </ul>
 </div>
 </div>
@@ -359,17 +356,17 @@ You should see something like this now:</li>
 <h2>Experience Lifecycle<a class="headerlink" href="#experience-lifecycle" title="Permalink to this headline">¶</a></h2>
 <p>The SDK can be initialized in 4 different modes:</p>
 <ul class="simple">
-<li>Targetless: scanner and target detection are disabled. There only way to start a experience is by id (with startExperienceWithId(ID)).</li>
-<li>TargetObject: scanner and target detection are enabled. Experiences can be either started by target detection or by id.</li>
-<li>TargetObjectBundle: same as TargetOnject, but in bundle mode. In this mode, no internet connection is required (experiences and target need to be within the assets folder).</li>
-<li>TargetFace: similar to TargetObject, where the only possible target is a human face.
-Once initialized, there are two ways of starting a new experience:</li>
-<li>By target detection (image, cylinder, object)</li>
-<li>By experience-id (manually)
-In both cases, the lifecycle triggered by the SDK will be the following (in order):</li>
-<li>onExperienceDetected: experience has been detected and loading process has been started</li>
-<li>onExperienceStarted: experience load has finished and it has been shown to the user</li>
-<li>onExperienceStopped: experience has been unloaded and is no longer visible to the user</li>
+<li><p>Targetless: scanner and target detection are disabled. There only way to start a experience is by id (with startExperienceWithId(ID)).</p></li>
+<li><p>TargetObject: scanner and target detection are enabled. Experiences can be either started by target detection or by id.</p></li>
+<li><p>TargetObjectBundle: same as TargetOnject, but in bundle mode. In this mode, no internet connection is required (experiences and target need to be within the assets folder).</p></li>
+<li><p>TargetFace: similar to TargetObject, where the only possible target is a human face.
+Once initialized, there are two ways of starting a new experience:</p></li>
+<li><p>By target detection (image, cylinder, object)</p></li>
+<li><p>By experience-id (manually)
+In both cases, the lifecycle triggered by the SDK will be the following (in order):</p></li>
+<li><p>onExperienceDetected: experience has been detected and loading process has been started</p></li>
+<li><p>onExperienceStarted: experience load has finished and it has been shown to the user</p></li>
+<li><p>onExperienceStopped: experience has been unloaded and is no longer visible to the user</p></li>
 </ul>
 </div>
 <div class="section" id="bundle-mode">
@@ -377,14 +374,12 @@ In both cases, the lifecycle triggered by the SDK will be the following (in orde
 <p>Bundle Mode should be used when no internet connection is needed. In this case, the target detection and the experience contents live within the app (in the assets folder).</p>
 <p>The setup for bundle mode require the following steps:</p>
 <ul>
-<li><p class="first">Add a folder named offline within the Assets group of your project (contents will be provided by the CamOnApp team):</p>
+<li><p>Add a folder named offline within the Assets group of your project (contents will be provided by the CamOnApp team):</p>
 <p><img alt="../_images/ios_bundle.png" src="../_images/ios_bundle.png" /></p>
 </li>
-<li><p class="first">Initialize the bundle data (optional, first run only). Copying and preparing the data to be ready to use by the SDK can take some time (depending on the size of the offline folder itself). That’s why there’s a method for this called [COAUtils initBundleData]. We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p>
-</li>
-<li><p class="first">Init the SDK in Bundle Mode by calling: initForBundleMode:
-From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.</p>
-</li>
+<li><p>Initialize the bundle data (optional, first run only). Copying and preparing the data to be ready to use by the SDK can take some time (depending on the size of the offline folder itself). That’s why there’s a method for this called [COAUtils initBundleData]. We recommend to call this method (not mandatory) when the app is being initialized for the first time, otherwise the first time the SDK loads it will take more time than expected.</p></li>
+<li><p>Init the SDK in Bundle Mode by calling: initForBundleMode:
+From now on, the SDK will search for known targets installed locally, and once detected, the associated experience will be fired right away.</p></li>
 </ul>
 </div>
 <div class="section" id="positional-experiences">
@@ -399,9 +394,9 @@ From now on, the SDK will search for known targets installed locally, and once d
 <p>For this purpose, CamOnApp’s SDK provides an default UI indicating when is a good moment to place an experience (meaning, the user has a ground plane in front of him). If you need to disable this UI in order to provide yours, all you have to do is call disableGroundPlaneHint.</p>
 <p>When a positional experience has started, the SDK will trigger the following callbacks:</p>
 <ul class="simple">
-<li>onGroundPlaneFound: there’s a ground plane in front of the user. He could tap the screen in order to place the experience.</li>
-<li>onGroundPlaneLost: the ground plane has been lost. The user will have to find a new one.</li>
-<li>onAnchorPointCreated: the user has successfuly placed the experience in a ground plane.</li>
+<li><p>onGroundPlaneFound: there’s a ground plane in front of the user. He could tap the screen in order to place the experience.</p></li>
+<li><p>onGroundPlaneLost: the ground plane has been lost. The user will have to find a new one.</p></li>
+<li><p>onAnchorPointCreated: the user has successfuly placed the experience in a ground plane.</p></li>
 </ul>
 </div>
 </div>
@@ -781,17 +776,17 @@ From now on, the SDK will search for known targets installed locally, and once d
 <h2>Libraries included<a class="headerlink" href="#libraries-included" title="Permalink to this headline">¶</a></h2>
 <p>The following open source libraries are used within the iOS SDK:</p>
 <ul class="simple">
-<li>Reachability</li>
-<li>GPUImage</li>
-<li>Curl</li>
-<li>LibPng</li>
-<li>LibZip</li>
-<li>Lua</li>
-<li>Crimild</li>
-<li>JsonCpp</li>
-<li>RapidXml</li>
-<li>Sol</li>
-<li>SQLiteCpp</li>
+<li><p>Reachability</p></li>
+<li><p>GPUImage</p></li>
+<li><p>Curl</p></li>
+<li><p>LibPng</p></li>
+<li><p>LibZip</p></li>
+<li><p>Lua</p></li>
+<li><p>Crimild</p></li>
+<li><p>JsonCpp</p></li>
+<li><p>RapidXml</p></li>
+<li><p>Sol</p></li>
+<li><p>SQLiteCpp</p></li>
 </ul>
 </div>
 </div>
